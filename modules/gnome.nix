@@ -16,4 +16,12 @@
     gnome-weather
     gnome-connections
   ];
+
+  environment.systemPackages = with pkgs.gnomeExtensions; [
+    gsconnect
+    vitals
+    open-bar
+    #pop-shell
+    # ...
+  ];
 }

@@ -30,6 +30,7 @@
     btop # replacement of htop/nmon
 
     # system tools
+    lm-sensors
     ethtool
     pciutils # lspci
     usbutils # lsusb
