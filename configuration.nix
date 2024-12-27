@@ -161,7 +161,7 @@ vlc
     gnome-weather 
     # gnome-disk-utility 
     pkgs.gnome-connections
-  ] ++ pkgs.gedit;
+  ] ++ [pkgs.gedit];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
