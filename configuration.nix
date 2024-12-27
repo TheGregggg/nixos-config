@@ -132,12 +132,12 @@ vlc
 #  wget
   ];
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = gedit ++ with pkgs.gnome; [
     # baobab      # disk usage analyzer
     cheese      # photo booth
     # eog         # image viewer
     epiphany    # web browser
-    gedit       # text editor
+    #gedit       # text editor
     simple-scan # document scanner
     totem       # video player
     yelp        # help viewer
