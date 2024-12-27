@@ -12,9 +12,8 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+
   # Bootloader.
- # boot.loader.systemd-boot.enable = true;
- # boot.loader.efi.canTouchEfiVariables = true;
 boot.loader.systemd-boot.enable = false;
 boot.loader.grub.enable = true;
 boot.loader.grub.device = "nodev";
@@ -22,6 +21,10 @@ boot.loader.grub.useOSProber = true;
 boot.loader.grub.efiSupport = true;
 boot.loader.efi.canTouchEfiVariables = true;
 boot.loader.efi.efiSysMountPoint = "/boot";
+
+
+  # Limit the number of generations to keep
+  boot.loader.grub.configurationLimit = 10;
 
   networking.hostName = "gregtop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -88,6 +91,16 @@ boot.loader.efi.efiSysMountPoint = "/boot";
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  # Perform garbage collection weekly to maintain low disk usage
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
+  # Optimize storage
+  nix.settings.auto-optimise-store = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gregoire = {
