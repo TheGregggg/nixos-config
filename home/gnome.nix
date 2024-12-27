@@ -34,6 +34,13 @@
           pkgs.gnomeExtensions.open-bar.extensionUuid
         ];
       };
+
+      #  vitals extensions settings
+      "org/gnome/shell/extensions/vitals" = {
+        hot-sensors = ["_memory_allocated_" "_temperature_processor_0_" "__fan_avg__" "_processor_frequency_"];
+        position-in-panel = 2;
+        fixed-widths = false;
+      };
     };
   };
 }
