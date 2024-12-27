@@ -132,7 +132,7 @@ vlc
 #  wget
   ];
 
-  environment.gnome.excludePackages = gedit ++ with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs.gnome; [
     # baobab      # disk usage analyzer
     cheese      # photo booth
     # eog         # image viewer
@@ -161,7 +161,7 @@ vlc
     gnome-weather 
     # gnome-disk-utility 
     pkgs.gnome-connections
-  ];
+  ] ++ pkgs.gedit;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
