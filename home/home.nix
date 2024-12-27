@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
-
 {
-  # TODO please change the username & home directory to your own
-  home.username = "gregoire";
-  home.homeDirectory = "/home/gregoire";
-
+  config,
+  pkgs,
+  ...
+}: {
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -19,7 +17,6 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
-
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -49,8 +46,7 @@
     # with more details log output
     nix-output-monitor
 
-
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
 
     # system tools
     ethtool
@@ -65,7 +61,6 @@
     userEmail = "git@gregoirelayet.com";
   };
 
-
   programs.kitty.enable = true;
 
   programs.bash = {
@@ -75,7 +70,6 @@
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
-      
 
     # set some aliases, feel free to add more or remove some
     shellAliases = {
@@ -92,19 +86,5 @@
       enable-hot-corners = false;
       show-battery-percentage = true;
     };
-    
   };
-
-  # This value determines the home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update home Manager without changing this value. See
-  # the home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "24.11";
-
-  # Let home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
