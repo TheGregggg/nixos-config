@@ -123,13 +123,12 @@ vlc
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim 
     git 
-    
-#  wget
+    nil # nix lsp
+    alejandra # nix formatter
   ];
 
   environment.gnome.excludePackages = with pkgs; [
