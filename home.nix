@@ -89,7 +89,10 @@
     settings."org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       accent-color = "purple";
+      enable-hot-corners = false;
+      show-battery-percentage = true;
     };
+    
   };
 
   # This value determines the home Manager release that your
