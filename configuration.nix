@@ -142,7 +142,7 @@ vlc
  
     gnome-contacts
     gnome-weather 
-    gnome.pkgs.gnome-connections
+    gnome-connections
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
