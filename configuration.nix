@@ -132,36 +132,18 @@ vlc
 #  wget
   ];
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    # baobab      # disk usage analyzer
+  environment.gnome.excludePackages = with pkgs; [
     cheese      # photo booth
-    # eog         # image viewer
     epiphany    # web browser
-    #gedit       # text editor
+    gedit       # text editor
     simple-scan # document scanner
     totem       # video player
     yelp        # help viewer
-    # evince      # document viewer
-    # file-roller # archive manager
-    # geary       # email client
-    # seahorse    # password manager
-
-    # gnome-calculator 
-    # gnome-calendar 
-    # gnome-characters 
-    # gnome-clocks 
+ 
     gnome-contacts
-    # gnome-font-viewer 
-    # gnome-logs 
-    # gnome-maps 
-    # gnome-music 
-    # gnome-photos 
-    # gnome-screenshot
-    # gnome-system-monitor 
     gnome-weather 
-    # gnome-disk-utility 
-    pkgs.gnome-connections
-  ] ++ [pkgs.gedit];
+    gnome.pkgs.gnome-connections
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
