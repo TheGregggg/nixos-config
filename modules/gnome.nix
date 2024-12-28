@@ -21,6 +21,7 @@
     gsconnect
     vitals
     open-bar
+    no-overview
     #pop-shell
     # ...
   ];

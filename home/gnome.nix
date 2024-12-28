@@ -28,10 +28,11 @@
       # extensions settings
       "org/gnome/shell" = {
         disable-user-extensions = false; # enables user extensions
-        enabled-extensions = [
-          pkgs.gnomeExtensions.gsconnect.extensionUuid
-          pkgs.gnomeExtensions.vitals.extensionUuid
-          pkgs.gnomeExtensions.open-bar.extensionUuid
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          gsconnect.extensionUuid
+          vitals.extensionUuid
+          open-bar.extensionUuid
+          no-overview.extensionUuid
         ];
       };
 
