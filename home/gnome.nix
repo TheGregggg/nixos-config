@@ -33,6 +33,7 @@
           vitals.extensionUuid
           open-bar.extensionUuid
           no-overview.extensionUuid
+          rounded-window-corners-reborn.extensionUuid
         ];
       };
 

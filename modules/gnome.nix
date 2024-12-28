@@ -22,6 +22,7 @@
     vitals
     open-bar
     no-overview
+    rounded-window-corners-reborn
     #pop-shell
     # ...
   ];
