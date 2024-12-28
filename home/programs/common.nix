@@ -8,7 +8,7 @@
 
     libreoffice
     hunspell
-    hunspellDicts.fr_FR
+    hunspellDicts.fr-moderne
 
     discord
 
