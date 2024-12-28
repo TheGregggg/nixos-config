@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  home.file."/home/gregoire/.local/share/backgrounds/wallpaper.png".source = ../wallpaper.png; # set wallpaper image
+  imports = [
+    ./themes/ayanami_purple.nix
+  ];
 
   # gnome settings
   dconf = {
@@ -10,6 +12,12 @@
         accent-color = "purple";
         enable-hot-corners = false;
         show-battery-percentage = true;
+      };
+
+      # activate num lock at startup
+      "org/gnome/desktop/peripherals/keyboard" = {
+        numlock-state = true;
+        remember-numlock-state = true;
       };
 
       # set wallpaper - a lot of line because I just copy what the settings do to the dconf db
