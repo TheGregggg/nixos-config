@@ -57,8 +57,6 @@
     userEmail = "git@gregoirelayet.com";
   };
 
-  programs.kitty.enable = true;
-
   programs.bash = {
     enable = true;
     enableCompletion = true;

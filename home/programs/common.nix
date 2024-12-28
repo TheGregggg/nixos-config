@@ -14,7 +14,7 @@
 
     transmission_4
 
-    # feel free to add your own or remove some of them
+    kitty
 
     fastfetch
 
@@ -54,8 +54,6 @@
     userName = "Grégoire Layet";
     userEmail = "git@gregoirelayet.com";
   };
-
-  programs.kitty.enable = true;
 
   programs.vscode = {
     enable = true;

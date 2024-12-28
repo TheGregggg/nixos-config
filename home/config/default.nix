@@ -1,20 +1,10 @@
 {config, ...}: let
-  configPath = "${config.home.homeDirectory}/nix-config/home/config";
-  nvimPath = "${configPath}/nvim";
-  kittyPath = "${configPath}/kitty";
-  vscodiumPath = "${configPath}/vscodium/settings.json";
+  nixConfigPath = "${config.home.homeDirectory}/nixos-config/home/config";
+  nvimPath = "${nixConfigPath}/nvim";
+  kittyPath = "${nixConfigPath}/kitty";
+  vscodiumPath = "${nixConfigPath}/vscodium/settings.json";
 in {
-  home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink nvimPath;
-    recursive = true; # link recursively
-    executable = true; # make all files executable
-  };
-
-  home.file.".config/kitty" = {
-    source = config.lib.file.mkOutOfStoreSymlink kittyPath;
-    recursive = true; # link recursively
-    executable = true; # make all files executable
-  };
-
-  home.file.".config/VSCodium/User/settings.json" = config.lib.file.mkOutOfStoreSymlink vscodiumPath;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimPath;
+  xdg.configFile."kitty".source = config.lib.file.mkOutOfStoreSymlink kittyPath;
+  xdg.configFile."VSCodium/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink vscodiumPath;
 }
