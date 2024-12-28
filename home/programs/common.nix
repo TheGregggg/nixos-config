@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
+    thunderbird
+    brave
+
+    vlc
     # feel free to add your own or remove some of them
 
     fastfetch
@@ -44,6 +47,18 @@
   };
 
   programs.kitty.enable = true;
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      mvllow.rose-pine
+      kamadorueda.alejandra
+      jeff-hykin.better-nix-syntax
+      jnoortheen.nix-ide
+      pkief.material-icon-theme
+    ];
+  };
 
   programs.bash = {
     enable = true;

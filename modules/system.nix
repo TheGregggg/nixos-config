@@ -1,19 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   ##### User config
   users.users.gregoire = {
     isNormalUser = true;
     description = "gregoire";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      thunderbird
-      brave
-      vscodium
-      vlc
-    ];
   };
 
   ##### nix config
