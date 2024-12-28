@@ -5,6 +5,15 @@
     brave
 
     vlc
+
+    libreoffice
+    hunspell
+    hunspellDicts.fr_FR
+
+    discord
+
+    transmission_4
+
     # feel free to add your own or remove some of them
 
     fastfetch
