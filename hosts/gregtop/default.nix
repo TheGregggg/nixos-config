@@ -6,6 +6,7 @@
     ../../modules/system.nix
     ../../modules/gnome.nix
     ../../modules/podman.nix
+    ../../modules/numlock.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -38,6 +39,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  ncfg.services.numlock-on-tty.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
