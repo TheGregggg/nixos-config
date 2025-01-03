@@ -18,6 +18,9 @@
 
     fastfetch
 
+    # dev
+    zig
+
     # archives
     zip
     unzip
