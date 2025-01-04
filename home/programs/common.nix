@@ -61,15 +61,13 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       mvllow.rose-pine
       kamadorueda.alejandra
       jeff-hykin.better-nix-syntax
       jnoortheen.nix-ide
       pkief.material-icon-theme
-      llvm-vs-code-extensions.vscode-clangd
-      ziglang.vscode-zig
+
     ];
   };
 
