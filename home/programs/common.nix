@@ -61,7 +61,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    mutableExtensionDir = false;
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       mvllow.rose-pine
       kamadorueda.alejandra
