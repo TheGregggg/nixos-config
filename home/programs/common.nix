@@ -67,6 +67,10 @@
       jeff-hykin.better-nix-syntax
       jnoortheen.nix-ide
       pkief.material-icon-theme
+
+      llvm-vs-code-extensions.vscode-clangd
+
+      ziglang.vscode-zig
     ];
   };
 
