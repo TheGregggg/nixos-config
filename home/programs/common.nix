@@ -13,6 +13,7 @@
     discord
 
     transmission_4-gtk
+    themix-gui
 
     kitty
 
