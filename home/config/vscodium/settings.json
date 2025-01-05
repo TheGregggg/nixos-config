@@ -7,5 +7,6 @@
     "window.customTitleBarVisibility": "auto",
     "window.titleBarStyle": "custom",
     "material-icon-theme.folders.theme": "classic",
-    "material-icon-theme.folders.color": "#26a69a"
+    "material-icon-theme.folders.color": "#26a69a",
+    "explorer.confirmDragAndDrop": false
 }
