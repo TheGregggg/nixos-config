@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/system.nix
     ../../modules/gnome.nix
@@ -22,6 +22,25 @@
       useOSProber = true;
       efiSupport = true;
       configurationLimit = 10; # Limit the number of generations to keep
+      theme = pkgs.stdenv.mkDerivation {
+        pname = "CyberGRUB-2077";
+        version = "1";
+        src = pkgs.fetchFromGitHub {
+          owner = "TheGregggg";
+          repo = "CyberGRUB-2077";
+          rev = "f95fa64b062e8d965385cc0ca89abd1970b19742";
+          hash = "sha256-IqSzQ4UPpxX7oMfuOdgcSj6rUNjsrXJVGnLhvbbOMVk=";
+        };
+        installPhase = ''
+          runHook preInstall
+
+          mkdir -p $out/
+
+          cp -r CyberGRUB-2077/* $out/
+
+          runHook postInstall
+        '';
+      };
     };
 
     efi = {
