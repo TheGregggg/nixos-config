@@ -14,6 +14,8 @@
 
     transmission_4-gtk
 
+    spotify
+
     kitty
 
     fastfetch
