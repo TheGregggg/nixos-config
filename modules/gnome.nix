@@ -1,11 +1,10 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  # force dark theme for some gtk apps
+  environment.variables.GTK_THEME = "Adwaita:dark";
 
   #exclude unused packages
   environment.gnome.excludePackages = with pkgs; [
