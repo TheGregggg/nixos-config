@@ -59,7 +59,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # ncfg.services.numlock-on-tty.enable = true;
+  ncfg.services.numlock-on-tty.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
