@@ -29,6 +29,7 @@
     open-bar
     no-overview
     rounded-window-corners-reborn
+    dash-to-dock
     #pop-shell
     # ...
   ];

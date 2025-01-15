@@ -42,6 +42,7 @@
           open-bar.extensionUuid
           no-overview.extensionUuid
           rounded-window-corners-reborn.extensionUuid
+          dash-to-dock.extensionUuid
         ];
       };
 
