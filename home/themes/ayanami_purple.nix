@@ -9,8 +9,8 @@
       accent-override = false;
       apply-accent-shell = true;
       apply-all-shell = true;
-      apply-flatpak = true;
-      apply-gtk = true;
+      apply-flatpak = false;
+      apply-gtk = false;
       apply-menu-notif = true;
       apply-menu-shell = true;
       auto-bgalpha = true;
@@ -132,8 +132,8 @@
       dbradius = 15.0;
       default-font = "Sans 12";
       destruct-color = ["0.75" "0.11" "0.16"];
-      disize = 48.0;
-      dshadow = true;
+      disize = 40.0;
+      dshadow = false;
       fgalpha = 1.0;
       fgcolor = ["1.0" "1.0" "1.0"];
       fitts-widgets = true;

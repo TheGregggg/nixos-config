@@ -33,14 +33,15 @@
         secondary-color = "#000000000000";
       };
 
-      # extensions settings
+      # extensions and dock settings
       "org/gnome/shell" = {
+        favorite-apps = ["brave-browser.desktop" "org.gnome.Nautilus.desktop" "kitty.desktop" "codium.desktop"];
         disable-user-extensions = false; # enables user extensions
         enabled-extensions = with pkgs.gnomeExtensions; [
           gsconnect.extensionUuid
           vitals.extensionUuid
           open-bar.extensionUuid
-          no-overview.extensionUuid
+          # no-overview.extensionUuid
           rounded-window-corners-reborn.extensionUuid
           dash-to-dock.extensionUuid
         ];
@@ -51,6 +52,18 @@
         hot-sensors = ["_memory_allocated_" "_temperature_processor_0_" "__fan_avg__" "_processor_frequency_"];
         position-in-panel = 2;
         fixed-widths = false;
+      };
+
+      # dash to dock settings
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        dock-position = "LEFT";
+        dash-max-icon-size = 40;
+        show-show-apps-button = true;
+        show-trash = false;
+        show-mounts = false;
+        dance-urgent-applications = false;
+        disable-overview-on-startup = true;
+        custom-theme-shrink = false;
       };
     };
   };
