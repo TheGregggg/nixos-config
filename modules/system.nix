@@ -89,6 +89,10 @@
     #media-session.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["0xProto"];})
+  ];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
