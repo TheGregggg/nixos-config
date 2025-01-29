@@ -16,6 +16,7 @@
     spotify
 
     kitty
+    wineWowPackages.stable
 
     fastfetch
 
