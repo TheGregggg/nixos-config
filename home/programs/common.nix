@@ -4,6 +4,7 @@
     brave
 
     vlc
+    nextcloud-client
 
     libreoffice
     hunspell
