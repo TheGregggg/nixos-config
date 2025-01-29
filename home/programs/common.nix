@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    brave
-
     vlc
     nextcloud-client
 
@@ -16,7 +14,6 @@
 
     spotify
 
-    kitty
     wineWowPackages.stable
 
     fastfetch
@@ -61,6 +58,16 @@
     userEmail = "git@gregoirelayet.com";
   };
 
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    extensions = [
+      {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
+      {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
+      {id = "noimedcjdohhokijigpfcbjcfcaaahej";} # RosePine
+    ];
+  };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -88,6 +95,14 @@
     # set some aliases, feel free to add more or remove some
     shellAliases = {
       ll = "ls -alh";
+    };
+  };
+
+  programs.kitty = {
+    enable = true;
+    themeFile = "rose-pine";
+    settings = {
+      font_family = "0xProto Nerd Font Mono";
     };
   };
 }
