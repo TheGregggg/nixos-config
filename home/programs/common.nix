@@ -28,6 +28,7 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf # A command-line fuzzy finder
+    starship
 
     # networking tools
     nmap # A utility for network discovery and security auditing
@@ -49,6 +50,8 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    yt-dlp
   ];
 
   # basic configuration of git, please change to your own
@@ -87,9 +90,15 @@
     enable = true;
     enableCompletion = true;
     # TODO add your custom bashrc here
-    bashrcExtra = ''
+    initExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       HISTCONTROL=ignoreboth
+
+      ydl(){
+        yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o "%(title)s.%(ext)s" "$1"
+      }
+
+      eval "$(starship init bash)"
     '';
 
     # set some aliases, feel free to add more or remove some
