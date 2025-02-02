@@ -65,6 +65,10 @@
         disable-overview-on-startup = true;
         custom-theme-shrink = false;
       };
+
+      "org/blueman/plugins/powermanager" = {
+        auto-power-on = false;
+      };
     };
   };
 }

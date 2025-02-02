@@ -59,6 +59,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.powerOnBoot = false;
+
   ncfg.services.numlock-on-tty.enable = true;
 
   # This value determines the NixOS release from which the default
