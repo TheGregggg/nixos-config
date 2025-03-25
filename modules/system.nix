@@ -3,7 +3,7 @@
   users.users.gregoire = {
     isNormalUser = true;
     description = "gregoire";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "adbusers"];
   };
 
   ##### nix config
@@ -63,6 +63,10 @@
     git
     nil # nix lsp
     alejandra # nix formatter
+
+    # add dev manpage
+    man-pages
+    man-pages-posix
   ];
 
   #### Services
@@ -92,6 +96,8 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["0xProto"];})
   ];
+
+  programs.adb.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

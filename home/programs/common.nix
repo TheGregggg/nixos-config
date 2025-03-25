@@ -18,6 +18,9 @@
 
     fastfetch
 
+    whatsapp-for-linux
+    pdfsam-basic
+
     # dev
     zig
 
