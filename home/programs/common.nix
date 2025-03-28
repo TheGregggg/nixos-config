@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     vlc
@@ -116,5 +120,10 @@
     settings = {
       font_family = "0xProto Nerd Font Mono";
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+    extraConfig = lib.fileContents ~/.config/nvim/init.vim;
   };
 }
