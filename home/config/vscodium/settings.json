@@ -10,5 +10,6 @@
     "material-icon-theme.folders.color": "#26a69a",
     "explorer.confirmDragAndDrop": false,
     "editor.fontFamily": "'0xProto Nerd Font Mono','Droid Sans Mono', 'monospace', monospace",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "clangd.path": "/home/gregoire/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/19.1.2/clangd_19.1.2/bin/clangd"
 }
