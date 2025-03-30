@@ -97,7 +97,7 @@
     (nerdfonts.override {fonts = ["0xProto"];})
   ];
 
-  programs.adb.enable = true;
+  programs.adb.enable = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
