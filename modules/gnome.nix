@@ -4,6 +4,8 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   #exclude unused packages
+  services.xserver.excludePackages = [pkgs.xterm];
+
   environment.gnome.excludePackages = with pkgs; [
     cheese # photo booth
     epiphany # web browser
@@ -15,6 +17,7 @@
     gnome-contacts
     gnome-weather
     gnome-connections
+    gnome-tour
   ];
 
   services.flatpak.enable = true;
