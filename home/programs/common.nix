@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     vlc
@@ -111,6 +107,7 @@
     # set some aliases, feel free to add more or remove some
     shellAliases = {
       ll = "ls -alh";
+      vi = "nvim";
     };
   };
 
@@ -124,6 +121,5 @@
 
   programs.neovim = {
     enable = true;
-    extraConfig = lib.fileContents ~/.config/nvim/init.vim;
   };
 }
