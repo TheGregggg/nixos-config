@@ -21,8 +21,11 @@
     whatsapp-for-linux
     pdfsam-basic
 
+    freecad-wayland
+
     # dev
     zig
+    arduino-ide
 
     # archives
     zip

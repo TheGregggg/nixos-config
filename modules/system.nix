@@ -3,7 +3,12 @@
   users.users.gregoire = {
     isNormalUser = true;
     description = "gregoire";
-    extraGroups = ["networkmanager" "wheel" "adbusers"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+      "dialout" # Allow access to serial device (for Arduino dev)
+    ];
   };
 
   ##### nix config
