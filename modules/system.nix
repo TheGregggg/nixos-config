@@ -6,7 +6,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "adbusers"
       "dialout" # Allow access to serial device (for Arduino dev)
     ];
   };
@@ -102,7 +101,7 @@
     (nerdfonts.override {fonts = ["0xProto"];})
   ];
 
-  programs.adb.enable = false;
+  #programs.adb.enable = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -122,7 +121,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [5000];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 }

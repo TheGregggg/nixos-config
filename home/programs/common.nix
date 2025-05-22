@@ -1,31 +1,29 @@
 {pkgs, ...}: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    #media
     vlc
-    nextcloud-client
+    spotify
 
     libreoffice
     hunspell
     hunspellDicts.fr-moderne
 
+    # apps
     discord
-
     transmission_4-gtk
-
-    spotify
-
-    wineWowPackages.stable
-
-    fastfetch
-
     whatsapp-for-linux
     pdfsam-basic
+    nextcloud-client
 
+    # maker
     freecad-wayland
+    kicad
 
     # dev
     zig
     arduino-ide
+    ghex
 
     # archives
     zip
@@ -33,11 +31,13 @@
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
-    fzf # A command-line fuzzy finder
+    fzf
     starship
+    fastfetch
+    btop
+    wineWowPackages.stable
 
-    # networking tools
-    nmap # A utility for network discovery and security auditing
+    nmap
 
     # misc
     cowsay
@@ -48,8 +48,6 @@
     # it provides the command `nom` works just like `nix`
     # with more details log output
     nix-output-monitor
-
-    btop # replacement of htop/nmon
 
     # system tools
     lm_sensors

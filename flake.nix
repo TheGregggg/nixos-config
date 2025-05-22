@@ -27,7 +27,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          home-manager.users.gregoire = import ./home;
+          home-manager.users.gregoire = import ./home {gregcomputer = "gregtop";};
         }
       ];
     };

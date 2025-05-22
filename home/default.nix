@@ -1,7 +1,7 @@
-{...}: {
+{gregcomputer, ...}: {
   imports = [
     ./gnome.nix
-    ./programs
+    (import ./programs {inherit gregcomputer;})
     ./config
   ];
 
