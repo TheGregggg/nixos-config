@@ -98,7 +98,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["0xProto"];})
+    nerd-fonts._0xproto
   ];
 
   #programs.adb.enable = false;
