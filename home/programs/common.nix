@@ -71,7 +71,7 @@
     extensions = [
       {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
       {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
-      {id = "noimedcjdohhokijigpfcbjcfcaaahej";} # RosePine
+      {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
     ];
   };
 
@@ -114,7 +114,7 @@
 
   programs.kitty = {
     enable = true;
-    themeFile = "rose-pine";
+    themeFile = "Catppuccin-Macchiato";
     settings = {
       font_family = "0xProto Nerd Font Mono";
     };
