@@ -1,1 +1,1 @@
-require("gregggg")
+require("simple")

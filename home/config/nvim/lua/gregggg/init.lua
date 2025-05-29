@@ -1,3 +1,4 @@
+require("gregggg.core")
 require("gregggg.remap")
 require("gregggg.lazy")
-vim.cmd.colorscheme("rose-pine-main")
+vim.cmd.colorscheme("catppuccin-macchiato")
