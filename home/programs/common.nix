@@ -16,10 +16,6 @@
     pdfsam-basic
     nextcloud-client
 
-    # maker
-    freecad-wayland
-    kicad
-
     # dev
     zig
     arduino-ide
