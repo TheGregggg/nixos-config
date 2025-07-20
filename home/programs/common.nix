@@ -15,6 +15,7 @@
     whatsapp-for-linux
     pdfsam-basic
     nextcloud-client
+    filezilla
 
     # dev
     zig
@@ -76,7 +77,7 @@
     package = pkgs.vscodium;
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
-      mvllow.rose-pine
+      catppuccin.catppuccin-vsc
       kamadorueda.alejandra
       jeff-hykin.better-nix-syntax
       jnoortheen.nix-ide
