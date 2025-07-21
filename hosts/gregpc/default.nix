@@ -4,7 +4,7 @@
     ../../modules/gnome.nix
 
     # Include the results of the hardware scan.
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # Bootloader config

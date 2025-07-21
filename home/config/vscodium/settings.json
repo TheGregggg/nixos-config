@@ -3,7 +3,7 @@
     "nix.enableLanguageServer": true,
     "git.confirmSync": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Rosé Pine",
+    "workbench.colorTheme": "Catppuccin Macchiato",
     "window.customTitleBarVisibility": "auto",
     "window.titleBarStyle": "custom",
     "material-icon-theme.folders.theme": "classic",
