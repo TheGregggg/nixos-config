@@ -4,7 +4,7 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/system.nix
-    ../../modules/gnome.nix
+    ../../modules/sway.nix
     #../../modules/podman.nix
     #../../modules/numlock.nix
 
