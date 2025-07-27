@@ -1,3 +1,13 @@
+set $lightgreen #c7fba5
+set $green #adf182
+set $lightpurple #916cad
+set $purple #523874
+set $orange #dc7d68
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 input * {
     xkb_layout "fr"
 }
@@ -34,11 +44,13 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 523874' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 523874'
+
+bindsym $mod+Control+l exec 'swaylock -f -c 523874'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -81,7 +93,7 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -209,16 +221,9 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
 
 
-set $lightgreen #c7fba5
-set $green #adf182
-set $lightpurple #916cad
-set $purple #523874
-set $orange #dc7d68
-
-
 # Basic bar configuration using the Base16 variables.
 bar {
-    #status_command i3status
+    swaybar_command waybar
 
     position top
 
@@ -248,5 +253,12 @@ client.focused          $purple $purple $green $lightgreen $purple
 font pango:0xProto Nerd Font Mono 10
 
 input type:keyboard xkb_numlock enabled
+
+bindsym Mod4+shift+e exec swaynag \
+      -t warning \
+      -m 'What do you want to do?' \
+      -b 'Poweroff' 'systemctl poweroff' \
+      -b 'Reboot' 'systemctl reboot'
+
 
 include /etc/sway/config.d/*
