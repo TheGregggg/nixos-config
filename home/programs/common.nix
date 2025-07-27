@@ -77,7 +77,7 @@
     enable = true;
     package = pkgs.vscodium;
     mutableExtensionsDir = false;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       catppuccin.catppuccin-vsc
       kamadorueda.alejandra
       jeff-hykin.better-nix-syntax
