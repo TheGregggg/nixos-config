@@ -220,6 +220,8 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
+bindsym $mod+KP_Add exec 'swaymsg gaps inner current plus 8'
+bindsym $mod+KP_Subtract exec 'swaymsg gaps inner current minus 8'
 
 # Basic bar configuration using the Base16 variables.
 bar {
@@ -260,5 +262,6 @@ bindsym Mod4+shift+e exec swaynag \
       -b 'Poweroff' 'systemctl poweroff' \
       -b 'Reboot' 'systemctl reboot'
 
+default_border pixel
 
 include /etc/sway/config.d/*

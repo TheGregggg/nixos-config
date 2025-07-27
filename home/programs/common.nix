@@ -70,6 +70,7 @@
       {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
       {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
     ];
+    commandLineArgs = ["--password-store=gnome-libsecret"];
   };
 
   programs.vscode = {
@@ -106,6 +107,8 @@
     shellAliases = {
       ll = "ls -alh";
       vi = "nvim";
+      nrs = "sudo nixos-rebuild switch";
+      gcm = "git commit -m";
     };
   };
 
