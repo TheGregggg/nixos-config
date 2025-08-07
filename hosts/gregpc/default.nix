@@ -17,6 +17,8 @@
       useOSProber = true;
       efiSupport = true;
       configurationLimit = 10; # Limit the number of generations to keep
+      gfxmodeBios = "1920x1080";
+      gfxmodeEfi = "1920x1080";
       theme = pkgs.stdenv.mkDerivation {
         pname = "CyberGRUB-2077";
         version = "1";
