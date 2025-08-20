@@ -5,7 +5,6 @@
 
   home.packages = with pkgs; [
     gnome-screenshot
-
-    steam
+    nicotine-plus
   ];
 }
