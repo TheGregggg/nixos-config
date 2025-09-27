@@ -16,6 +16,7 @@
     pdfsam-basic
     nextcloud-client
     filezilla
+    picard
 
     # dev
     zig
