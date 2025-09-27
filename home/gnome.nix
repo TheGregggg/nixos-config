@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./themes/ayanami_purple.nix
+    #./themes/ayanami_purple.nix
   ];
 
   # gnome settings
@@ -56,7 +56,7 @@
 
       # dash to dock settings
       "org/gnome/shell/extensions/dash-to-dock" = {
-        dock-position = "LEFT";
+        dock-position = "BOTTOM";
         dash-max-icon-size = 40;
         show-show-apps-button = true;
         show-trash = false;
