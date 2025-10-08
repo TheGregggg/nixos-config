@@ -5,11 +5,13 @@
   imports = [
     ../../modules/system.nix
     ../../modules/gnome.nix
+    ./gnome-override.nix
     #../../modules/podman.nix
     #../../modules/numlock.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./system-apps.nix
   ];
 
   # Bootloader config

@@ -1,6 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  gregcomputer,
+  ...
+}: {
   imports = [
-    #./themes/ayanami_purple.nix
+    ./themes/ayanami_purple.nix
+    (./. + "/${gregcomputer}.nix")
   ];
 
   # gnome settings
