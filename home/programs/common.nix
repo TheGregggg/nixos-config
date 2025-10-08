@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  # Packages that should be installed to the user profile.
+{pkgs, ...}:
+# Packages that should be installed to the user profile.
+{
   home.packages = with pkgs; [
     #media
     vlc
@@ -34,6 +35,8 @@
     fastfetch
     btop
     wineWowPackages.stable
+
+    texliveMinimal
 
     nmap
 
