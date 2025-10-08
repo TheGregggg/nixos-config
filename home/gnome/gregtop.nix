@@ -1,4 +1,7 @@
 {...}: {
+  imports = [
+    ../themes/ayanami_purple.nix
+  ];
   # gnome settings
   dconf = {
     enable = true;
