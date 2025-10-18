@@ -36,7 +36,8 @@
     btop
     wineWowPackages.stable
 
-    texliveMinimal
+    texliveFull
+    texstudio
 
     nmap
 
