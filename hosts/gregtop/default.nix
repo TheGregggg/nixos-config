@@ -4,12 +4,13 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/system.nix
-    ../../modules/sway.nix
-    #../../modules/podman.nix
+    ../../modules/gnome.nix
+    ../../modules/podman.nix
     #../../modules/numlock.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./system-apps.nix
   ];
 
   # Bootloader config

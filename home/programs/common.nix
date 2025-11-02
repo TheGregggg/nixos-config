@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  # Packages that should be installed to the user profile.
+{pkgs, ...}:
+# Packages that should be installed to the user profile.
+{
   home.packages = with pkgs; [
     #media
     vlc
@@ -16,6 +17,7 @@
     pdfsam-basic
     nextcloud-client
     filezilla
+    picard
 
     # dev
     zig
@@ -33,6 +35,9 @@
     fastfetch
     btop
     wineWowPackages.stable
+
+    texliveFull
+    texstudio
 
     nmap
 
