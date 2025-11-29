@@ -1,4 +1,4 @@
-{}: {
+{...}: {
   imports = [
     ../themes/evangelions.nix
   ];

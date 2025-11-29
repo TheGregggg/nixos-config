@@ -3,5 +3,8 @@
     gnome-screenshot
     nicotine-plus
     lmms
+
+    wineWowPackages.stable
+    winetricks
   ];
 }
