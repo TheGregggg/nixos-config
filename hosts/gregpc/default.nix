@@ -2,6 +2,7 @@
   imports = [
     ../../modules/system.nix
     ../../modules/gnome.nix
+    ../../modules/podman.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
