@@ -18,11 +18,15 @@
     nextcloud-client
     filezilla
     picard
+    tigervnc
 
     # dev
     zig
     arduino-ide
     ghex
+
+    jdk
+    jetbrains.idea-community
 
     # archives
     zip
