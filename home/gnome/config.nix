@@ -40,6 +40,7 @@
           # no-overview.extensionUuid
           rounded-window-corners-reborn.extensionUuid
           dash-to-dock.extensionUuid
+          appindicatorsupport.extensionUuid
         ];
       };
 
@@ -59,6 +60,12 @@
         dance-urgent-applications = false;
         disable-overview-on-startup = true;
         custom-theme-shrink = false;
+      };
+      "/org/gnome/shell/extensions/appindicator" = {
+        tray-pos = "left";
+      };
+      "/org/gnome/shell/extensions/appindicator" = {
+        icon-saturation = 1;
       };
 
       "org/blueman/plugins/powermanager" = {

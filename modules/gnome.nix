@@ -29,6 +29,7 @@
     no-overview
     rounded-window-corners-reborn
     dash-to-dock
+    appindicator
     #pop-shell
     # ...
   ];
