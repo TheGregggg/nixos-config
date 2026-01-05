@@ -116,7 +116,7 @@
     shellAliases = {
       ll = "ls -alh";
       vi = "nvim";
-      nrs = "sudo nixos-rebuild switch";
+      nrs = "sudo nixos-rebuild switch --fast";
       gcm = "git commit -m";
     };
   };
