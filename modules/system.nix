@@ -10,11 +10,14 @@
     ];
   };
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   ##### nix config
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true; # Optimize storage
+      extra-platforms = ["aarch64-linux"];
     };
 
     gc = {
