@@ -60,6 +60,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.firewall.allowedTCPPorts = [8096];
+  networking.firewall.allowedUDPPorts = [7359];
+
   hardware.bluetooth.powerOnBoot = false;
 
   #ncfg.services.numlock-on-tty.enable = true;

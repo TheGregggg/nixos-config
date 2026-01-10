@@ -11,5 +11,8 @@
     "explorer.confirmDragAndDrop": false,
     "editor.fontFamily": "'0xProto Nerd Font Mono','Droid Sans Mono', 'monospace', monospace",
     "explorer.confirmDelete": false,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "workbench.editorAssociations": {
+        "*.svg": "default"
+    }
 }
