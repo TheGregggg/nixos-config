@@ -122,6 +122,10 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [3000 5000];
   networking.firewall.allowedUDPPorts = [5000];
+
+  networking.hosts = {
+    "10.69.0.1" = ["mabbox.bytel.fr"];
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 }
