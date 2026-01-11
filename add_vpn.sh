@@ -1,0 +1,1 @@
+nmcli connection import type wireguard file hosts/gregtop/wireguardvpn.conf

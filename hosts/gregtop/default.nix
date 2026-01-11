@@ -8,9 +8,9 @@
     ../../modules/podman.nix
     #../../modules/numlock.nix
 
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./system-apps.nix
+    ./wireguard.nix
   ];
 
   # Bootloader config
