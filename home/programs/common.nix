@@ -13,7 +13,7 @@
     # apps
     discord
     transmission_4-gtk
-    whatsapp-for-linux
+    wasistlos
     pdfsam-basic
     nextcloud-client
     filezilla
@@ -26,7 +26,7 @@
     ghex
 
     jdk
-    jetbrains.idea-community
+    jetbrains.idea-oss
 
     # archives
     zip
@@ -67,8 +67,10 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Grégoire Layet";
-    userEmail = "git@gregoirelayet.com";
+    settings.user = {
+      name = "Grégoire Layet";
+      email = "git@gregoirelayet.com";
+    };
   };
 
   programs.chromium = {
