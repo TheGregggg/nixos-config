@@ -70,6 +70,7 @@
     git
     nil # nix lsp
     alejandra # nix formatter
+    wireguard-tools
 
     # add dev manpage
     man-pages

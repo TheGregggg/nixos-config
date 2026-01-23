@@ -1,0 +1,9 @@
+[Interface]
+Address = 10.69.1.11/32
+PrivateKey = qqqqqqqqqqqqqq
+
+[Peer]
+PublicKey = ycY9O5x5lO51/DNq5oHzIkTotqpbaFgnb3CMmxLMS3c=
+# restrict this to the wireguard subnet if you don't want to route everything to the tunnel
+AllowedIPs = 10.69.1.0/24, 10.69.0.0/24
+Endpoint = qqqq:xxx
