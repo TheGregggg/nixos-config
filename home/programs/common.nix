@@ -73,7 +73,7 @@
     };
   };
 
-  programs.chromium = {
+  programs.brave = {
     enable = true;
     package = pkgs.brave;
     extensions = [
@@ -118,7 +118,7 @@
     shellAliases = {
       ll = "ls -alh";
       vi = "nvim";
-      nrs = "sudo nixos-rebuild switch --fast";
+      nrs = "sudo nixos-rebuild switch --no-reexec";
       gcm = "git commit -m";
     };
   };
