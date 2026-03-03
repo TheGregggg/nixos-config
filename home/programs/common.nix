@@ -96,6 +96,7 @@
       pkief.material-icon-theme
       llvm-vs-code-extensions.vscode-clangd
       ziglang.vscode-zig
+      ms-python.python
     ];
   };
 
