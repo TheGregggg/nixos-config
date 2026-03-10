@@ -10,6 +10,8 @@
     hunspell
     hunspellDicts.fr-moderne
 
+    inkscape
+
     # apps
     discord
     transmission_4-gtk
