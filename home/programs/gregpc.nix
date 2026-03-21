@@ -4,6 +4,9 @@
     nicotine-plus
     lmms
 
+    audacity
+    kdePackages.kdenlive
+
     prismlauncher
 
     (heroic.override {
