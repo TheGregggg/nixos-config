@@ -6,6 +6,7 @@
 
     audacity
     kdePackages.kdenlive
+    gsettings-desktop-schemas
 
     prismlauncher
 
