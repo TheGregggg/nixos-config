@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./switch.nix
+  ];
+
   home.packages = with pkgs; [
     gnome-screenshot
     nicotine-plus
