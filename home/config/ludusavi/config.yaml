@@ -4,13 +4,21 @@ runtime:
 release:
   check: true
 manifest:
-  url: "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml"
   enable: true
 language: en-US
 theme: dark
 roots:
   - store: steam
     path: /home/gregoire/.local/share/Steam
+  - store: gog
+    path: /home/gregoire/GOG Games
+  - store: heroic
+    path: /home/gregoire/.config/heroic
+  - store: lutris
+    path: /home/gregoire/.local/share/lutris
+    database: ~
+  - store: other
+    path: /home/gregoire/.local/share/Cemu/mlc01/usr/save
 redirects: []
 backup:
   path: /home/gregoire/backups/ludusavi
@@ -72,4 +80,12 @@ apps:
   rclone:
     path: /nix/store/b3hdqx8vr01im1qmszi2wkq7m82wgczj-rclone-1.72.1/bin/rclone
     arguments: "--fast-list --ignore-checksum"
-customGames: []
+customGames:
+  - name: "The Legend of Zelda : Breath Of The Wild - Wii U"
+    integration: override
+    files:
+      - "<base>"
+    registry: []
+    installDir:
+      - 00050000/101c9500
+    winePrefix: []
