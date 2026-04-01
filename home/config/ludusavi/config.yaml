@@ -1,0 +1,75 @@
+---
+runtime:
+  threads: ~
+release:
+  check: true
+manifest:
+  url: "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml"
+  enable: true
+language: en-US
+theme: dark
+roots:
+  - store: steam
+    path: /home/gregoire/.local/share/Steam
+redirects: []
+backup:
+  path: /home/gregoire/backups/ludusavi
+  ignoredGames: []
+  filter:
+    excludeStoreScreenshots: false
+    cloud:
+      exclude: false
+      epic: false
+      gog: false
+      origin: false
+      steam: false
+      uplay: false
+    ignoredPaths: []
+    ignoredRegistry: []
+  toggledPaths: {}
+  toggledRegistry: {}
+  sort:
+    key: status
+    reversed: false
+  retention:
+    full: 1
+    differential: 0
+  format:
+    chosen: simple
+    zip:
+      compression: deflate
+    compression:
+      deflate:
+        level: 6
+      bzip2:
+        level: 6
+      zstd:
+        level: 10
+  onlyConstructive: false
+restore:
+  path: /home/gregoire/backups/ludusavi
+  ignoredGames: []
+  toggledPaths: {}
+  toggledRegistry: {}
+  sort:
+    key: status
+    reversed: false
+  reverseRedirects: false
+scan:
+  showDeselectedGames: true
+  showUnchangedGames: true
+  showUnscannedGames: true
+cloud:
+  remote:
+    WebDav:
+      id: ludusavi-1775075272
+      url: "https://uncloud.univ-nantes.fr/remote.php/dav/files/E221106H/"
+      username: E221106H
+      provider: Nextcloud
+  path: ludusavi-backup
+  synchronize: true
+apps:
+  rclone:
+    path: /nix/store/b3hdqx8vr01im1qmszi2wkq7m82wgczj-rclone-1.72.1/bin/rclone
+    arguments: "--fast-list --ignore-checksum"
+customGames: []
