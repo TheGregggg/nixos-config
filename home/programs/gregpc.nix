@@ -14,6 +14,9 @@
 
     prismlauncher
 
+    cemu
+    ryubing
+
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
