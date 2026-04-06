@@ -104,6 +104,8 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
+    ipafont
+    kochi-substitute
   ];
 
   #programs.adb.enable = false;
