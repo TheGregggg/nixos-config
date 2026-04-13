@@ -90,16 +90,26 @@
     enable = true;
     package = pkgs.vscodium;
     mutableExtensionsDir = false;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-      kamadorueda.alejandra
-      jeff-hykin.better-nix-syntax
-      jnoortheen.nix-ide
-      pkief.material-icon-theme
-      llvm-vs-code-extensions.vscode-clangd
-      ziglang.vscode-zig
-      ms-python.python
-    ];
+    profiles.default.extensions = with pkgs.vscode-extensions;
+      [
+        catppuccin.catppuccin-vsc
+        kamadorueda.alejandra
+        jeff-hykin.better-nix-syntax
+        jnoortheen.nix-ide
+        pkief.material-icon-theme
+        llvm-vs-code-extensions.vscode-clangd
+        ziglang.vscode-zig
+        ms-python.python
+        dbaeumer.vscode-eslint
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "javascript-ejs-support";
+          publisher = "DigitalBrainstem";
+          version = "1.3.3";
+          sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
+        }
+      ];
   };
 
   programs.bash = {
