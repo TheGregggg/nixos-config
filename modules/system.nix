@@ -62,6 +62,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  hardware.keyboard.qmk.enable = true;
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     vim
