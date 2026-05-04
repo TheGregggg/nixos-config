@@ -15,44 +15,20 @@
     ./hardware-configuration.nix
     ./system-apps.nix
   ];
-
+  
+  
   # Bootloader config
   boot = {
+  	kernelPackages = pkgs.linuxPackages_latest;  # Use latest kernel.
     loader = {
-      systemd-boot.enable = false;
-
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        configurationLimit = 10; # Limit the number of generations to keep
-        theme = pkgs.stdenv.mkDerivation {
-          pname = "CyberGRUB-2077";
-          version = "1";
-          src = pkgs.fetchFromGitHub {
-            owner = "TheGregggg";
-            repo = "CyberGRUB-2077";
-            rev = "f95fa64b062e8d965385cc0ca89abd1970b19742";
-            hash = "sha256-IqSzQ4UPpxX7oMfuOdgcSj6rUNjsrXJVGnLhvbbOMVk=";
-          };
-          installPhase = ''
-            runHook preInstall
-
-            mkdir -p $out/
-
-            cp -r CyberGRUB-2077/* $out/
-
-            runHook postInstall
-          '';
-        };
-      };
+      systemd-boot.enable = true;
 
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
     };
-    initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/11425bca-ef57-4b7e-8991-9d563561f4d4";
+    initrd.luks.devices."luks-88c54c8b-32bb-457b-b898-4e509d23cf38".device = "/dev/disk/by-uuid/88c54c8b-32bb-457b-b898-4e509d23cf38";
   };
 
   networking.hostName = "gregwork"; # Define your hostname.
