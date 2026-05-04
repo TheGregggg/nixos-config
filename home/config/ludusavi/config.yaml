@@ -22,7 +22,10 @@ roots:
 redirects: []
 backup:
   path: /home/gregoire/backups/ludusavi
-  ignoredGames: []
+  ignoredGames:
+    - Balatro
+    - Counter-Strike 2
+    - Stardew Valley
   filter:
     excludeStoreScreenshots: false
     cloud:

@@ -6,6 +6,7 @@
     ../../modules/system.nix
     ../../modules/gnome.nix
     ../../modules/podman.nix
+    ../../modules/switch.nix
     #../../modules/numlock.nix
 
     ./hardware-configuration.nix
