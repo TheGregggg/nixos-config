@@ -1,0 +1,132 @@
+{pkgs, ...}: {
+  imports = [
+    ./common.nix
+  ];
+
+  home.packages = with pkgs; [
+    libreoffice
+    hunspell
+    hunspellDicts.fr-moderne
+
+    inkscape
+
+    # apps
+    pdfsam-basic
+    filezilla
+
+    # dev
+    ghex
+
+    # archives
+    zip
+    unzip
+
+    # utils
+    ripgrep # recursively searches directories for a regex pattern
+    fzf
+    starship
+    fastfetch
+    btop
+    wineWowPackages.stable
+
+    texliveFull
+    texstudio
+
+    nmap
+    arp-scan
+
+    # misc
+    cowsay
+    which
+
+    # nix related
+    #
+    # it provides the command `nom` works just like `nix`
+    # with more details log output
+    nix-output-monitor
+
+    # system tools
+    lm_sensors
+    ethtool
+    pciutils # lspci
+    usbutils # lsusb
+  ];
+
+  # basic configuration of git, please change to your own
+  programs.git = {
+    enable = true;
+    settings.user = {
+      name = "Grégoire Layet";
+      email = "git@gregoirelayet.com";
+    };
+  };
+
+  programs.brave = {
+    enable = true;
+    package = pkgs.brave;
+    extensions = [
+      {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
+      {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
+      {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
+    ];
+    commandLineArgs = ["--password-store=gnome-libsecret"];
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    mutableExtensionsDir = false;
+    profiles.default.extensions = with pkgs.vscode-extensions;
+      [
+        catppuccin.catppuccin-vsc
+        kamadorueda.alejandra
+        jeff-hykin.better-nix-syntax
+        jnoortheen.nix-ide
+        pkief.material-icon-theme
+        llvm-vs-code-extensions.vscode-clangd
+        ziglang.vscode-zig
+        ms-python.python
+        dbaeumer.vscode-eslint
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "javascript-ejs-support";
+          publisher = "DigitalBrainstem";
+          version = "1.3.3";
+          sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
+        }
+      ];
+  };
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    # TODO add your custom bashrc here
+    initExtra = ''
+      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      HISTCONTROL=ignoreboth
+
+      eval "$(starship init bash)"
+    '';
+
+    # set some aliases, feel free to add more or remove some
+    shellAliases = {
+      ll = "ls -alh";
+      vi = "nvim";
+      nrs = "sudo nixos-rebuild switch --no-reexec";
+      gcm = "git commit -m";
+    };
+  };
+
+  programs.kitty = {
+    enable = true;
+    themeFile = "Catppuccin-Macchiato";
+    settings = {
+      font_family = "0xProto Nerd Font Mono";
+    };
+  };
+
+  programs.neovim = {
+    enable = true;
+  };
+}
