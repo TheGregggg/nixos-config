@@ -15,19 +15,28 @@
     ./hardware-configuration.nix
     ./system-apps.nix
   ];
-  
-  
+
   # Bootloader config
   boot = {
-  	kernelPackages = pkgs.linuxPackages_latest;  # Use latest kernel.
+    kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = lib.mkForce false;
 
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
     };
+
+    # Lanzaboote currently replaces the systemd-boot module.
+    # This setting is usually set to true in configuration.nix
+    # generated at installation time. So we force it to false
+    # for now.
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+
     initrd.luks.devices."luks-88c54c8b-32bb-457b-b898-4e509d23cf38".device = "/dev/disk/by-uuid/88c54c8b-32bb-457b-b898-4e509d23cf38";
   };
 
@@ -42,6 +51,11 @@
     layout = lib.mkForce "us";
     variant = "";
   };
+
+  environment.systemPackages = [
+    # For debugging and troubleshooting Secure Boot.
+    pkgs.sbctl
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;

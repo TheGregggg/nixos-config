@@ -7,12 +7,19 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    lanzaboote,
     ...
   } @ inputs: {
     nixosConfigurations.gregtop = nixpkgs.lib.nixosSystem {
@@ -45,6 +52,8 @@
 
           home-manager.users.gregoire = import ./home {gregcomputer = "gregwork";};
         }
+
+        lanzaboote.nixosModules.lanzaboote
       ];
     };
     nixosConfigurations.gregpc = nixpkgs.lib.nixosSystem {
