@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     libreoffice
     hunspell
@@ -51,11 +55,37 @@
   ];
 
   # basic configuration of git, please change to your own
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      forwardAgent = false;
+      addKeysToAgent = "yes";
+      compression = false;
+      serverAliveInterval = 0;
+      serverAliveCountMax = 3;
+      hashKnownHosts = false;
+      userKnownHostsFile = "~/.ssh/known_hosts";
+      controlMaster = "no";
+      controlPath = "~/.ssh/master-%r@%n:%p";
+      controlPersist = "no";
+    };
+  };
+
   programs.git = {
     enable = true;
     settings.user = {
       name = "Grégoire Layet";
-      email = "git@gregoirelayet.com";
+      email = "gregoire.layet@9elements.com";
+    };
+    signing = {
+      key = "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
+      signByDefault = true;
+    };
+    settings = {
+      gpg = {
+        format = "ssh";
+      };
     };
   };
 
@@ -64,7 +94,6 @@
     package = pkgs.brave;
     extensions = [
       {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
-      {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
       {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
     ];
     commandLineArgs = ["--password-store=gnome-libsecret"];
