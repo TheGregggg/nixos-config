@@ -6,6 +6,8 @@
 
     inkscape
 
+    slack
+
     # apps
     pdfsam-basic
     filezilla
