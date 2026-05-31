@@ -29,7 +29,7 @@
     starship
     fastfetch
     btop
-    wineWowPackages.stable
+    wineWow64Packages.stable
 
     texliveFull
     texstudio

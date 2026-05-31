@@ -15,7 +15,8 @@
     # apps
     discord
     transmission_4-gtk
-    wasistlos
+    karere
+    # signal-desktop
     pdfsam-basic
     nextcloud-client
     filezilla
@@ -40,7 +41,6 @@
     starship
     fastfetch
     btop
-    wineWowPackages.stable
 
     texliveFull
     texstudio
@@ -147,5 +147,7 @@
 
   programs.neovim = {
     enable = true;
+    withPython3 = false;
+    withRuby = false;
   };
 }
