@@ -101,6 +101,7 @@
         ziglang.vscode-zig
         ms-python.python
         dbaeumer.vscode-eslint
+        antyos.openscad
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

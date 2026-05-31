@@ -4,5 +4,6 @@
     freecad-wayland
     kicad
     prusa-slicer
+    openscad
   ];
 }
