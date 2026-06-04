@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   ##### User config
   users.users.gregoire = {
     isNormalUser = true;
@@ -84,13 +89,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable CUPS to print documents.
+  # printer discovery
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
   };
-
+  # Enable CUPS to print documents.
   services.printing = {
     enable = true;
     drivers = with pkgs; [
