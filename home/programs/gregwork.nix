@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -74,19 +75,8 @@
 
   programs.git = {
     enable = true;
-    settings.user = {
-      name = "Grégoire Layet";
-      email = "gregoire.layet@9elements.com";
-    };
-    signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
-      signByDefault = true;
-    };
-    settings = {
-      gpg = {
-        format = "ssh";
-      };
-    };
+    settings.user.email = lib.mkForce "gregoire.layet@9elements.com";
+    signing.key = lib.mkForce "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
   };
 
   programs.brave = {
