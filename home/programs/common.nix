@@ -1,10 +1,6 @@
 {pkgs, ...}:
 # Packages that should be installed to the user profile.
 {
-  imports = [
-    ./git.nix
-  ];
-
   home.packages = with pkgs; [
     #media
     vlc
@@ -44,7 +40,6 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    starship
     fastfetch
     btop
 
@@ -68,13 +63,13 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
-
-    yt-dlp
   ];
 
   programs.git.enable = true;
 
   gregoireConfig.brave.enable = true;
+
+  gregoireConfig.ydl.enable = true;
 
   programs.vscodium = {
     enable = true;
@@ -106,30 +101,6 @@
           sha256 = "h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
         }
       ];
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    # TODO add your custom bashrc here
-    initExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      HISTCONTROL=ignoreboth
-
-      ydl(){
-        yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o "%(title)s.%(ext)s" "$1"
-      }
-
-      eval "$(starship init bash)"
-    '';
-
-    # set some aliases, feel free to add more or remove some
-    shellAliases = {
-      ll = "ls -alh";
-      vi = "nvim";
-      nrs = "sudo nixos-rebuild switch --no-reexec";
-      gcm = "git commit -m";
-    };
   };
 
   programs.kitty = {
