@@ -109,6 +109,12 @@
           version = "1.3.3";
           sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
         }
+        {
+          name = "nix-embedded-highlighter";
+          publisher = "atomicspirit";
+          version = "0.1.3";
+          sha256 = "h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
+        }
       ];
   };
 
