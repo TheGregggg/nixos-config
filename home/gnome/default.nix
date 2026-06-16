@@ -1,6 +1,6 @@
-{gregcomputer, ...}: {
+{hostname, ...}: {
   imports = [
     ./config.nix
-    (./. + "/${gregcomputer}.nix")
+    (./. + "/${hostname}.nix")
   ];
 }

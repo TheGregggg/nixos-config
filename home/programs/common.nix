@@ -1,6 +1,10 @@
 {pkgs, ...}:
 # Packages that should be installed to the user profile.
 {
+  imports = [
+    ./git.nix
+  ];
+
   home.packages = with pkgs; [
     #media
     vlc
@@ -66,14 +70,7 @@
     yt-dlp
   ];
 
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "Grégoire Layet";
-      email = "git@gregoirelayet.com";
-    };
-  };
+  programs.git.enable = true;
 
   programs.brave = {
     enable = true;

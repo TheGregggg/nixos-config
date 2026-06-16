@@ -39,7 +39,7 @@
   networking.networkmanager.enable = true;
 
   networking.firewall.allowedTCPPorts = [8096];
-  networking.firewall.allowedUDPPorts = [7359];
+  networking.firewall.allowedUDPPorts = [7359 5000];
 
   hardware.bluetooth.powerOnBoot = false;
 
