@@ -72,16 +72,7 @@
 
   programs.git.enable = true;
 
-  programs.brave = {
-    enable = true;
-    package = pkgs.brave;
-    extensions = [
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
-      {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
-      {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
-    ];
-    commandLineArgs = ["--password-store=gnome-libsecret"];
-  };
+  gregoireConfig.brave.enable = true;
 
   programs.vscodium = {
     enable = true;
