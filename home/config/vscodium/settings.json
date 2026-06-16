@@ -15,5 +15,7 @@
         "*.svg": "default"
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "terminal.integrated.initialHint": false
+    "terminal.integrated.initialHint": false,
+    "nix.serverPath": "nil",
+    "git.alwaysSignOff": true
 }
