@@ -31,6 +31,8 @@
     zig
     arduino-ide
     ghex
+    foot
+    lf
 
     jdk
     jetbrains.idea-oss
