@@ -26,6 +26,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.brave = {
+      enable = true;
       package = pkgs.brave;
       extensions = [
         (mkIf cfg.bitwarden {id = "nngceckbapebfimnlniiiahkandclblb";})
