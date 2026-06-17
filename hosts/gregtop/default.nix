@@ -4,6 +4,7 @@
     ../../modules/gnome.nix
     ../../modules/podman.nix
     ../../modules/switch.nix
+    ../../modules/server_hosts.nix
     #../../modules/numlock.nix
 
     ./hardware-configuration.nix
