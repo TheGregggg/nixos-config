@@ -9,7 +9,6 @@
   imports = [
     ../../modules/system.nix
     ../../modules/podman.nix
-    #../../modules/numlock.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix
