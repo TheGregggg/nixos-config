@@ -1,0 +1,22 @@
+{
+    "nix.enableLanguageServer": true,
+    "git.confirmSync": false,
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "window.customTitleBarVisibility": "auto",
+    "window.titleBarStyle": "custom",
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.folders.color": "#26a69a",
+    "explorer.confirmDragAndDrop": false,
+    "editor.fontFamily": "'0xProto Nerd Font Mono','Droid Sans Mono', 'monospace', monospace",
+    "explorer.confirmDelete": false,
+    "workbench.editorAssociations": {
+        "*.svg": "default"
+    },
+    "bitbake.parseOnSave": false,
+    "clangd.path": "/home/gregoire/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/22.1.0/clangd_22.1.0/bin/clangd",
+    "editor.rulers": [
+        72
+    ],
+    "git.alwaysSignOff": true
+}
