@@ -52,10 +52,19 @@
     variant = "";
   };
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
+    sbctl
+
+    openscad
+
+    tio
+    dediprog-sf100
+    saleae-logic-2
   ];
+
+  hardware.saleae-logic.enable = true;
+  users.users.gregoire.extraGroups = ["plugdev"];
 
   # Enable networking
   networking.networkmanager.enable = true;

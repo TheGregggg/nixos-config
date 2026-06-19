@@ -2,7 +2,21 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  open-remote-ssh = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+    mktplcRef = {
+      publisher = "jeanp413";
+      name = "open-remote-ssh";
+      version = "0.0.49";
+    };
+    vsix = pkgs.fetchurl {
+      url = "https://open-vsx.org/api/jeanp413/open-remote-ssh/0.0.49/file/jeanp413.open-remote-ssh-0.0.49.vsix";
+      # set to lib.fakeHash on first build, paste the real one from the error
+      hash = "sha256-QfJnAAx+kO2iJ1EzWoO5HLogJKg3RiC3hg1/u2Jm6t4=";
+      name = "jeanp413-open-remote-ssh.zip";
+    };
+  };
+in {
   home.packages = with pkgs; [
     libreoffice
     hunspell
@@ -11,6 +25,8 @@
     inkscape
 
     slack
+    discord
+    aerc
 
     # apps
     pdfsam-basic
@@ -18,6 +34,7 @@
 
     # dev
     ghex
+    clang-tools
 
     # archives
     zip
@@ -72,8 +89,9 @@
     };
   };
 
-  programs.git = {
+  programs.git = rec {
     enable = true;
+    package = pkgs.gitFull;
     settings.user = {
       name = "Grégoire Layet";
       email = "gregoire.layet@9elements.com";
@@ -85,6 +103,20 @@
     settings = {
       gpg = {
         format = "ssh";
+      };
+      sendemail = {
+        from = "${settings.user.name} <${settings.user.email}>";
+        smtpuser = "${settings.user.email}";
+        smtpserver = "smtp.gmail.com";
+        smtpencryption = "ssl";
+        smtpserverport = 465;
+        chainreplyto = false;
+        tocover = true;
+        cccover = true;
+        linux = {
+          tocmd = "`pwd`/scripts/get_maintainer.pl --nogit --nogit-fallback --norolestats --nol";
+          cccmd = "`pwd`/scripts/get_maintainer.pl --nogit --nogit-fallback --norolestats --nom";
+        };
       };
     };
   };
@@ -101,28 +133,35 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
-    mutableExtensionsDir = false;
-    profiles.default.extensions = with pkgs.vscode-extensions;
-      [
-        catppuccin.catppuccin-vsc
-        kamadorueda.alejandra
-        jeff-hykin.better-nix-syntax
-        jnoortheen.nix-ide
-        pkief.material-icon-theme
-        llvm-vs-code-extensions.vscode-clangd
-        ziglang.vscode-zig
-        ms-python.python
-        dbaeumer.vscode-eslint
-      ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "javascript-ejs-support";
-          publisher = "DigitalBrainstem";
-          version = "1.3.3";
-          sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
-        }
-      ];
+    package = pkgs.vscodium.fhs;
+    mutableExtensionsDir = true;
+    # profiles.default.extensions = with pkgs.vscode-extensions;
+    #   [
+    #     catppuccin.catppuccin-vsc
+    #     kamadorueda.alejandra
+    #     jeff-hykin.better-nix-syntax
+    #     jnoortheen.nix-ide
+    #     pkief.material-icon-theme
+    #     llvm-vs-code-extensions.vscode-clangd
+    #     ziglang.vscode-zig
+    #     ms-python.python
+    #     dbaeumer.vscode-eslint
+    #     open-remote-ssh
+    #   ]
+    #   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    #     {
+    #       name = "javascript-ejs-support";
+    #       publisher = "DigitalBrainstem";
+    #       version = "1.3.3";
+    #       sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
+    #     }
+    #     {
+    #       name = "yocto-bitbake";
+    #       publisher = "yocto-project";
+    #       version = "2.8.0";
+    #       sha256 = "FCgZ3yG4WQGTxJ6Z9AFRycX7owUU9/1xrNzC1WjzvgA=";
+    #     }
+    #   ];
   };
 
   programs.bash = {

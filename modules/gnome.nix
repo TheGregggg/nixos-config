@@ -30,6 +30,7 @@
     rounded-window-corners-reborn
     dash-to-dock
     appindicator
+    tiling-shell
     #pop-shell
     # ...
   ];
