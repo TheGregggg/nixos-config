@@ -1,6 +1,7 @@
 {
   config,
   hostname,
+  pkgs,
   ...
 }: {
   programs.git = {

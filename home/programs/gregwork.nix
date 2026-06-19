@@ -96,8 +96,8 @@ in {
     signing.key = lib.mkForce "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
     settings = {
       sendemail = {
-        from = "${settings.user.name} <${settings.user.email}>";
-        smtpuser = "${settings.user.email}";
+        from = "${config.programs.git.settings.user.name} <${settings.user.email.content}>";
+        smtpuser = "${settings.user.email.content}";
         smtpserver = "smtp.gmail.com";
         smtpencryption = "ssl";
         smtpserverport = 465;
@@ -112,14 +112,9 @@ in {
     };
   };
 
-  programs.brave = {
+  gregoireConfig.brave = {
     enable = true;
-    package = pkgs.brave;
-    extensions = [
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
-      {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
-    ];
-    commandLineArgs = ["--password-store=gnome-libsecret"];
+    gestnote-ranking = false;
   };
 
   programs.vscode = {
@@ -153,26 +148,6 @@ in {
     #       sha256 = "FCgZ3yG4WQGTxJ6Z9AFRycX7owUU9/1xrNzC1WjzvgA=";
     #     }
     #   ];
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    # TODO add your custom bashrc here
-    initExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      HISTCONTROL=ignoreboth
-
-      eval "$(starship init bash)"
-    '';
-
-    # set some aliases, feel free to add more or remove some
-    shellAliases = {
-      ll = "ls -alh";
-      vi = "nvim";
-      nrs = "sudo nixos-rebuild switch --no-reexec";
-      gcm = "git commit -m";
-    };
   };
 
   programs.kitty = {
