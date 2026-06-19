@@ -25,14 +25,15 @@
   environment.systemPackages = with pkgs.gnomeExtensions; [
     gsconnect
     vitals
-    open-bar
+    #open-bar
     no-overview
-    rounded-window-corners-reborn
+    #rounded-window-corners-reborn
     dash-to-dock
     appindicator
     tiling-shell
     #pop-shell
     # ...
+    # tiling-shell
   ];
 
   environment.sessionVariables.XDG_DATA_DIRS = ["${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"];

@@ -36,11 +36,12 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           gsconnect.extensionUuid
           vitals.extensionUuid
-          open-bar.extensionUuid
-          # no-overview.extensionUuid
-          rounded-window-corners-reborn.extensionUuid
+          #open-bar.extensionUuid
+          no-overview.extensionUuid
+          #rounded-window-corners-reborn.extensionUuid
           dash-to-dock.extensionUuid
           appindicator.extensionUuid
+          # tiling-shell.extensionUuid
         ];
       };
 

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   ##### User config
   users.users.gregoire = {
     isNormalUser = true;
@@ -84,9 +89,21 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # printer discovery
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true; # enable virtual printer to print to pdf
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+    cups-pdf.enable = true; # enable virtual printer to print to pdf
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

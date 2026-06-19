@@ -7,7 +7,8 @@
   ];
 
   home.packages = with pkgs; [
-    logseq
+    # logseq
     clickup
+    st
   ];
 }

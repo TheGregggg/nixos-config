@@ -2,9 +2,9 @@
   description = "I use NixOS btw";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
@@ -21,56 +21,33 @@
     home-manager,
     lanzaboote,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    modulesTemplate = hostname: [
+      ./hosts/${hostname}
+
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = {inherit hostname;};
+
+          users.gregoire = import ./home;
+        };
+      }
+    ];
+  in {
     nixosConfigurations.gregtop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        ./hosts/gregtop
-
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.gregoire = import ./home {gregcomputer = "gregtop";};
-        }
-      ];
+      modules = modulesTemplate "gregtop";
     };
     nixosConfigurations.gregwork = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        ./hosts/gregwork
-
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.gregoire = import ./home {gregcomputer = "gregwork";};
-        }
-
-        lanzaboote.nixosModules.lanzaboote
-      ];
+      modules = modulesTemplate "gregwork" ++ [lanzaboote.nixosModules.lanzaboote];
     };
     nixosConfigurations.gregpc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        ./hosts/gregpc
-
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.gregoire = import ./home {gregcomputer = "gregpc";};
-        }
-      ];
+      modules = modulesTemplate "gregpc";
     };
   };
 }

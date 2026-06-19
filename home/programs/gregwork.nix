@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: let
   open-remote-ssh = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
@@ -46,7 +47,7 @@ in {
     starship
     fastfetch
     btop
-    wineWowPackages.stable
+    wineWow64Packages.stable
 
     texliveFull
     texstudio
@@ -91,19 +92,9 @@ in {
 
   programs.git = rec {
     enable = true;
-    package = pkgs.gitFull;
-    settings.user = {
-      name = "Grégoire Layet";
-      email = "gregoire.layet@9elements.com";
-    };
-    signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
-      signByDefault = true;
-    };
+    settings.user.email = lib.mkForce "gregoire.layet@9elements.com";
+    signing.key = lib.mkForce "${config.home.homeDirectory}/.ssh/id_ecdsa.pub";
     settings = {
-      gpg = {
-        format = "ssh";
-      };
       sendemail = {
         from = "${settings.user.name} <${settings.user.email}>";
         smtpuser = "${settings.user.email}";

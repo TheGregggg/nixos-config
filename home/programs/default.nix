@@ -1,5 +1,9 @@
-{gregcomputer, ...}: {
+{hostname, ...}: {
   imports = [
-    (./. + "/${gregcomputer}.nix")
+    ./shell.nix
+    ./browser.nix
+    ./git.nix
+    ./ydl.nix
+    (./. + "/${hostname}.nix")
   ];
 }
