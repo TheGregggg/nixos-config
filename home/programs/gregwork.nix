@@ -109,6 +109,7 @@ in {
           cccmd = "`pwd`/scripts/get_maintainer.pl --nogit --nogit-fallback --norolestats --nom";
         };
       };
+      include.path = "${config.home.homeDirectory}/nixos-config/home/secrets/git-smtp";
     };
   };
 
