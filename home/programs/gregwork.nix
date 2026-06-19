@@ -76,7 +76,7 @@ in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
+    settings."*" = {
       forwardAgent = false;
       addKeysToAgent = "yes";
       compression = false;
@@ -118,7 +118,7 @@ in {
     gestnote-ranking = false;
   };
 
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
     package = pkgs.vscodium.fhs;
     mutableExtensionsDir = true;
@@ -161,5 +161,7 @@ in {
 
   programs.neovim = {
     enable = true;
+    withPython3 = false;
+    withRuby = false;
   };
 }
