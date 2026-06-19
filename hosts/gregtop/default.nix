@@ -12,7 +12,6 @@
     ./wireguard.nix
   ];
 
-  # Bootloader config
   boot.loader = {
     systemd-boot = {
       enable = true;
@@ -25,7 +24,7 @@
       };
     };
 
-    timeout = 0;
+    timeout = 0; # instant boot, press space during boot to see the menu
 
     efi = {
       canTouchEfiVariables = true;
@@ -33,8 +32,12 @@
     };
   };
 
+  gregConfig.gnomeDesktop = {
+    enable = true;
+    dock-position = "LEFT";
+  };
+
   networking.hostName = "gregtop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;

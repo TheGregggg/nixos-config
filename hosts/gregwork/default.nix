@@ -8,7 +8,6 @@
 }: {
   imports = [
     ../../modules/system.nix
-    ../../modules/gnome.nix
     ../../modules/podman.nix
     #../../modules/numlock.nix
 
@@ -39,6 +38,8 @@
 
     initrd.luks.devices."luks-88c54c8b-32bb-457b-b898-4e509d23cf38".device = "/dev/disk/by-uuid/88c54c8b-32bb-457b-b898-4e509d23cf38";
   };
+
+  gregConfig.gnomeDesktop.enable = true;
 
   networking.hostName = "gregwork"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

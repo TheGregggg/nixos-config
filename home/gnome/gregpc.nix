@@ -1,5 +1,0 @@
-{...}: {
-  imports = [
-    ../themes/evangelions.nix
-  ];
-}

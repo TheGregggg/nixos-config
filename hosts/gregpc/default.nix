@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/system.nix
-    ../../modules/gnome.nix
     ../../modules/podman.nix
     ../../modules/switch.nix
 
@@ -48,6 +47,12 @@
       efiSysMountPoint = "/boot";
     };
   };
+
+  gregConfig.gnomeDesktop = {
+    enable = true;
+    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/evangelions.jpg";
+  };
+  dconf.settings."org/gnome/desktop/background".picture-options = "spanned";
 
   networking.hostName = "gregpc";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
