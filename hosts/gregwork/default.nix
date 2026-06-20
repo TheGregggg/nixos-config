@@ -7,9 +7,8 @@
   ...
 }: {
   imports = [
-    ../../modules/system.nix
+    ../../modules/workstation.nix
     ../../modules/podman.nix
-    #../../modules/numlock.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix

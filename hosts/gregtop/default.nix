@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../modules/system.nix
-    ../../modules/gnome.nix
+    ../../modules/workstation.nix
     ../../modules/podman.nix
     ../../modules/switch.nix
     ../../modules/server_hosts.nix

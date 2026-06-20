@@ -1,5 +1,5 @@
 # This use the HOSTNAME env variable to determine which configuration to built
-#
+# It import the base modules and the machine configuration.
 {lib, ...}: let
   sources = import ./npins;
 
@@ -16,6 +16,7 @@
 
   modules =
     [
+      ./modules
       ./hosts/${hostname}
       (import "${home-manager}/nixos")
 
