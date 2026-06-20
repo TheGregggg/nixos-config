@@ -19,6 +19,9 @@
       ./modules
       ./hosts/${hostname}
       (import "${home-manager}/nixos")
+      {
+        nixpkgs.flake.source = sources.nixpkgs;
+      }
 
       {
         home-manager = {
