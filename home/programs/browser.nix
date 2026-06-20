@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.gregoireConfig.brave;
+  cfg = config.gregConfig.brave;
 in {
-  options.gregoireConfig.brave = {
+  options.gregConfig.brave = {
     enable = mkEnableOption "Enable Brave";
     bitwarden = mkOption {
       type = lib.types.bool;

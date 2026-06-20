@@ -67,9 +67,9 @@
 
   programs.git.enable = true;
 
-  gregoireConfig.brave.enable = true;
+  gregConfig.brave.enable = true;
 
-  gregoireConfig.ydl.enable = true;
+  gregConfig.ydl.enable = true;
 
   programs.vscodium = {
     enable = true;
