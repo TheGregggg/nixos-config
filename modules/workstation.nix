@@ -1,5 +1,6 @@
 # config for all workstation
 {pkgs, ...}: {
+  # cross compile tools
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
   nix.settings.extra-platforms = ["aarch64-linux"];
 
