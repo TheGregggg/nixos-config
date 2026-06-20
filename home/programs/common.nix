@@ -71,6 +71,8 @@
 
   gregConfig.ydl.enable = true;
 
+  gregConfig.nvim.enable = true;
+
   programs.vscodium = {
     enable = true;
     mutableExtensionsDir = false;
@@ -109,11 +111,5 @@
     settings = {
       font_family = "0xProto Nerd Font Mono";
     };
-  };
-
-  programs.neovim = {
-    enable = true;
-    withPython3 = false;
-    withRuby = false;
   };
 }
