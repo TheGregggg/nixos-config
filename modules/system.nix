@@ -82,6 +82,8 @@
     # add dev manpage
     man-pages
     man-pages-posix
+
+    npins
   ];
 
   #### Services

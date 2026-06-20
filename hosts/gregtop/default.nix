@@ -1,11 +1,10 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/system.nix
     ../../modules/gnome.nix
     ../../modules/podman.nix
     ../../modules/switch.nix
     ../../modules/server_hosts.nix
-    #../../modules/numlock.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix
@@ -37,15 +36,16 @@
     dock-position = "LEFT";
   };
 
-  networking.hostName = "gregtop"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  networking.firewall.allowedTCPPorts = [8096];
-  networking.firewall.allowedUDPPorts = [7359 5000];
+  networking = {
+    hostName = "gregtop";
+    networkmanager.enable = true;
+    firewall.allowedTCPPorts = [8096];
+    firewall.allowedUDPPorts = [7359 5000];
+  };
 
   hardware.bluetooth.powerOnBoot = false;
+
+  home-manager.users.gregoire = import ./home.nix;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
