@@ -159,9 +159,5 @@ in {
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    withPython3 = false;
-    withRuby = false;
-  };
+  gregConfig.nvim.enable = true;
 }
