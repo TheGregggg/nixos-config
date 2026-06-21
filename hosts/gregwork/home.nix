@@ -46,8 +46,6 @@ in {
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    fastfetch
-    btop
     wineWow64Packages.stable
 
     shfmt

@@ -61,5 +61,7 @@
     vim
     curl
     wget
+    btop
+    fastfetch
   ];
 }

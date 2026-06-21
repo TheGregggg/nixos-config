@@ -40,8 +40,6 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    fastfetch
-    btop
 
     texliveFull
     texstudio
