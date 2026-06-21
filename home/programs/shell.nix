@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  nixConfigPath = "${config.home.homeDirectory}/nixos-config/home/config";
+in {
   home.packages = with pkgs; [
     starship
   ];
@@ -22,4 +28,6 @@
       rebootwindob = "systemctl reboot --boot-loader-entry=windows_10.conf";
     };
   };
+
+  xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${nixConfigPath}/starship.toml";
 }
