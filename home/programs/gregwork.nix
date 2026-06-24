@@ -36,6 +36,7 @@ in {
     # dev
     ghex
     clang-tools
+    binwalk
 
     # archives
     zip
