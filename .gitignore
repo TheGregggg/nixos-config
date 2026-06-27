@@ -2,3 +2,4 @@
 !*.example
 wireguardvpn.conf
 privatekey
+result

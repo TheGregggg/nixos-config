@@ -62,6 +62,5 @@
     curl
     wget
     btop
-    fastfetch
   ];
 }

@@ -21,6 +21,7 @@
       (import "${home-manager}/nixos")
       {
         nixpkgs.flake.source = sources.nixpkgs;
+        nix.channel.enable = false;
       }
 
       {

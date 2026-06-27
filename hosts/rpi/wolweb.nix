@@ -1,6 +1,8 @@
 {...}: {
   networking.firewall.allowedTCPPorts = [8089];
 
+  home-manager.users.gregoire.home.file."/home/gregoire/nixos/wolweb-devices.json".source = ./wolweb-devices.json;
+
   virtualisation.oci-containers.containers = {
     wolweb = {
       image = "ghcr.io/sameerdhoot/wolweb";

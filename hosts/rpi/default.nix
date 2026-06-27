@@ -1,30 +1,56 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  sources = import ../../npins;
+in {
   imports = [
+    <nixpkgs/nixos/modules/profiles/minimal.nix>
+    <nixpkgs/nixos/modules/profiles/perlless.nix> ## -1 GB
     ./hardware-configuration.nix
     ./networking.nix
     ./wolweb.nix
     # ./uptime_kuma.nix
   ];
 
+  # Disabling the whole `profiles/base.nix` module, which is responsible
+  # for adding ZFS and a bunch of other unnecessary programs:
+  disabledModules = [
+    "profiles/base.nix"
+  ];
+
+  # Kills the 789 MB linux-firmware bundle + sof-firmware + wireless-regdb.
+  hardware.enableRedistributableFirmware = lib.mkForce false;
+  hardware.enableAllFirmware = false;
+
+  # ONLY if you use the Pi's onboard Wi-Fi / Bluetooth, add the brcm blobs back
+  # (a few MB, not the 789 MB set). Ethernet-only? Delete this line entirely.
+  # hardware.firmware = [pkgs.raspberrypiWirelessFirmware];
+
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
+
+  boot.tmp.useTmpfs = true;
 
   hardware.graphics.enable = false;
   services.pipewire.enable = false;
   services.libinput.enable = false;
 
   nix.settings.trusted-users = ["root" "gregoire"];
+  nix.gc.automatic = lib.mkForce false;
 
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "raspberry"; # Define your hostname.
 
-  environment.systemPackages = with pkgs; [wireguard-tools];
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+    fastfetch.minimal
+    rsync
+  ];
 
   # Enable SSH in the boot process.
   services.openssh = {

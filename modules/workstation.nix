@@ -11,6 +11,7 @@
     nil # nix lsp
     alejandra # nix formatter
     wireguard-tools
+    fastfetch
 
     # add dev manpage
     man-pages
