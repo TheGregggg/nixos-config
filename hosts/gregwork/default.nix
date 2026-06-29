@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ../../modules/gnome.nix
     ../../modules/system.nix
     ../../modules/podman.nix
 
