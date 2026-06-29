@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.gregoireConfig.brave;
+  cfg = config.gregConfig.brave;
 in {
-  options.gregoireConfig.ydl = {
+  options.gregConfig.ydl = {
     enable = mkEnableOption "Enable youtube dl";
   };
 

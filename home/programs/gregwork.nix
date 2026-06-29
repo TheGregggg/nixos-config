@@ -114,7 +114,7 @@ in {
     };
   };
 
-  gregoireConfig.brave = {
+  gregConfig.brave = {
     enable = true;
     gestnote-ranking = false;
   };
