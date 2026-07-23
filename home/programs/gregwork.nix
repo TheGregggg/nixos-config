@@ -28,6 +28,7 @@ in {
     slack
     discord
     aerc
+    fractal
 
     # apps
     pdfsam-basic
@@ -49,6 +50,9 @@ in {
     fastfetch
     btop
     wineWow64Packages.stable
+
+    shfmt
+    shellcheck
 
     texliveFull
     texstudio
