@@ -18,5 +18,27 @@
     "editor.rulers": [
         72
     ],
-    "git.alwaysSignOff": true
+    "git.alwaysSignOff": true,
+    "terminal.integrated.initialHint": false,
+    "editor.inlayHints.enabled": "off",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "ltex.enabled": [
+        "bibtex",
+        "context",
+        "context.tex",
+        "html",
+        "latex",
+        "markdown",
+        "mdx",
+        "typst",
+        "asciidoc",
+        "neorg",
+        "org",
+        "quarto",
+        "restructuredtext",
+        "rsweave",
+        "git-commit"
+    ]
 }
