@@ -1,7 +1,8 @@
-{...}: {
+{hostname, ...}: {
   imports = [
     ./programs
     ./config
+    ../hosts/${hostname}/home.nix
   ];
   home = {
     username = "gregoire";

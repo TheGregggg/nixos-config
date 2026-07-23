@@ -46,7 +46,6 @@ in {
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    starship
     fastfetch
     btop
     wineWow64Packages.stable
@@ -78,22 +77,22 @@ in {
   ];
 
   # basic configuration of git, please change to your own
-  programs.ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-    settings."*" = {
-      forwardAgent = false;
-      addKeysToAgent = "yes";
-      compression = false;
-      serverAliveInterval = 0;
-      serverAliveCountMax = 3;
-      hashKnownHosts = false;
-      userKnownHostsFile = "~/.ssh/known_hosts";
-      controlMaster = "no";
-      controlPath = "~/.ssh/master-%r@%n:%p";
-      controlPersist = "no";
-    };
-  };
+  # programs.ssh = {
+  #   enable = true;
+  #   enableDefaultConfig = false;
+  #   settings."*" = {
+  #     forwardAgent = false;
+  #     addKeysToAgent = "yes";
+  #     compression = false;
+  #     serverAliveInterval = 0;
+  #     serverAliveCountMax = 3;
+  #     hashKnownHosts = false;
+  #     userKnownHostsFile = "~/.ssh/known_hosts";
+  #     controlMaster = "no";
+  #     controlPath = "~/.ssh/master-%r@%n:%p";
+  #     controlPersist = "no";
+  #   };
+  # };
 
   programs.git = rec {
     enable = true;
