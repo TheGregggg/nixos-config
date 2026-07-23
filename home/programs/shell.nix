@@ -9,6 +9,11 @@ in {
     starship
   ];
 
+  home.sessionVariables = {
+    EDITOR = "vi";
+    NIXPKGS_ALLOW_UNFREE = 1;
+  };
+
   programs.bash = {
     enable = true; # you always want a shell activated :)
     enableCompletion = true;

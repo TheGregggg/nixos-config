@@ -52,7 +52,7 @@ in {
       #rounded-window-corners-reborn
       dash-to-dock
       appindicator
-      # tiling-shell
+      tiling-shell
     ];
 
     # fixes some weird issues with file chooser on some apps
@@ -99,7 +99,7 @@ in {
               #rounded-window-corners-reborn.extensionUuid
               dash-to-dock.extensionUuid
               appindicator.extensionUuid
-              # tiling-shell.extensionUuid
+              tiling-shell.extensionUuid
             ];
           };
 
