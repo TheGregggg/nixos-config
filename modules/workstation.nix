@@ -4,6 +4,8 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
   nix.settings.extra-platforms = ["aarch64-linux"];
 
+  users.users.gregoire.extraGroups = ["dialout"]; # Allow access to serial device (for Arduino dev)
+
   environment.systemPackages = with pkgs; [
     git
     nil # nix lsp
