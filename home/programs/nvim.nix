@@ -24,5 +24,9 @@ in {
       source = config.lib.file.mkOutOfStoreSymlink "${nixConfigPath}/nvim";
       recursive = true;
     };
+
+    home.sessionVariables = {
+      EDITOR = "vi";
+    };
   };
 }

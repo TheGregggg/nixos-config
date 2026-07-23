@@ -10,7 +10,6 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "vi";
     NIXPKGS_ALLOW_UNFREE = 1;
   };
 
