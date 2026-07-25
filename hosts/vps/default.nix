@@ -1,6 +1,5 @@
 {
   modulesPath,
-  config,
   pkgs,
   ...
 }: let
@@ -13,6 +12,7 @@ in {
     ./hardware-configuration.nix
     ./disk-config.nix
     ./caddy.nix
+    ./vaultwarden.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
   # for adding ZFS and a bunch of other unnecessary programs:
@@ -80,6 +80,8 @@ in {
       AllowUsers = ["gregoire"];
     };
   };
+
+  age.secrets.vaultwardenEnv.file = ./secrets/vaultwarden.age;
 
   users.users.gregoire.initialPassword = "gregoire";
 

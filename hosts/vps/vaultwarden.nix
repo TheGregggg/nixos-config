@@ -6,7 +6,7 @@ in {
     backupDir = "/var/local/vaultwarden/backup";
     # in order to avoid having  ADMIN_TOKEN in the nix store it can be also set with the help of an environment file
     # be aware that this file must be created by hand (or via secrets management like sops)
-    environmentFile = "/var/lib/vaultwarden/vaultwarden.env";
+    environmentFile = config.age.secrets.vaultwardenEnv.path;
     config = {
       DOMAIN = "https://${domain}.gregoirelayet.com";
 
@@ -15,17 +15,18 @@ in {
 
       SIGNUPS_ALLOWED = "false";
 
-      LOG_FILE = "/data/vaultwarden.log";
-      LOG_LEVEL = "warn";
-      EXTENDED_LOGGING = "true";
-
       PUSH_ENABLED = "true";
 
+      SMTP_HOST = "ssl0.ovh.net";
+      SMTP_PORT = "587";
+      SMTP_FROM = "no-reply@gregoirelayet.com";
       SMTP_SECURITY = "starttls";
+
+      SMTP_USERNAME = "no-reply@gregoirelayet.com";
     };
   };
 
-  services.caddy.virtualHosts."bitwarden.example.com".extraConfig = ''
+  services.caddy.virtualHosts."${domain}.gregoirelayet.com".extraConfig = ''
     encode zstd gzip
 
     reverse_proxy :${toString config.services.vaultwarden.config.ROCKET_PORT} {
