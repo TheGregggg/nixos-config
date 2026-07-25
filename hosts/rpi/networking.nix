@@ -10,7 +10,7 @@
   # enable NAT
   networking.nat = {
     enable = true;
-    externalInterface = "enu1u1";
+    externalInterface = "end0";
     internalInterfaces = ["wg0"];
   };
 
@@ -32,7 +32,7 @@
         # Note: can also be included inline via the privateKey option,
         # but this makes the private key world-readable;
         # using privateKeyFile is recommended.
-        privateKeyFile = "/home/gregoire/nixos/privatekey";
+        privateKey = lib.fileContents ./wireguard/privatekey;
 
         peers = [
           {
