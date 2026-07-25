@@ -10,5 +10,6 @@
     # logseq
     clickup
     st
+    reaper
   ];
 }
