@@ -4,6 +4,8 @@
     ../../modules/podman.nix
     ../../modules/switch.nix
     ../../modules/server_hosts.nix
+    ../../modules/sway.nix
+    # ../../modules/distributed_build.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix
@@ -41,6 +43,8 @@
     firewall.allowedTCPPorts = [8096];
     firewall.allowedUDPPorts = [7359 5000];
   };
+
+  services.pipewire.jack.enable = true;
 
   hardware.bluetooth.powerOnBoot = false;
 
