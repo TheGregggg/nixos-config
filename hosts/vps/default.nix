@@ -8,9 +8,9 @@
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    (modulesPath + "/profiles/qemu-guest.nix")
     (modulesPath + "/profiles/perlless.nix")
     (sources.disko + "/module.nix")
+    ./hardware-configuration.nix
     ./disk-config.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
