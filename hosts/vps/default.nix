@@ -8,7 +8,6 @@
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    (modulesPath + "/profiles/perlless.nix")
     (sources.disko + "/module.nix")
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -19,15 +18,55 @@ in {
     "profiles/base.nix"
   ];
 
-  boot.loader.systemd-boot = {
+  disko.devices.disk.main.device = "/dev/sda";
+
+  boot.loader.grub = {
     enable = true;
-    # no need to set devices, disko will add all devices that have a EF02 partition to the list already
-    # devices = [ ];
+    devices = ["/dev/sda"];
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
+  boot.loader.efi = {
+    efiSysMountPoint = "/boot/efi";
+    canTouchEfiVariables = false;
+  };
 
   nix.settings.trusted-users = ["root" "gregoire"];
+
+  networking.networkmanager.enable = true;
+
+  networking = {
+    interfaces.eth0 = {
+      ipv4.addresses = [
+        {
+          address = "185.157.245.210";
+          prefixLength = 25;
+        }
+      ];
+      ipv6.addresses = [
+        {
+          address = "2a09:6383:0:10:185:157:245:210";
+          prefixLength = 64;
+        }
+      ];
+    };
+    defaultGateway = {
+      address = "185.157.245.129";
+      interface = "eth0";
+    };
+
+    defaultGateway6 = {
+      address = "2a09:6383:0:10::1";
+      interface = "eth0";
+    };
+
+    nameservers = [
+      "45.147.98.3"
+      "89.234.180.34"
+      "2a09:6383::45:147:98:3"
+      "2a09:6382::2"
+    ];
+  };
 
   services.openssh = {
     enable = true;
@@ -38,8 +77,6 @@ in {
       AllowUsers = ["gregoire"];
     };
   };
-
-  networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
     fastfetch.minimal
