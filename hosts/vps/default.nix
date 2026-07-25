@@ -13,6 +13,7 @@ in {
     ./disk-config.nix
     ./caddy.nix
     ./vaultwarden.nix
+    ./fail2ban.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
   # for adding ZFS and a bunch of other unnecessary programs:
