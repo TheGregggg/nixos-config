@@ -1,6 +1,6 @@
 {
   modulesPath,
-  lib,
+  config,
   pkgs,
   ...
 }: let
@@ -9,6 +9,7 @@ in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (sources.disko + "/module.nix")
+    (sources.agenix + "/modules/age.nix")
     ./hardware-configuration.nix
     ./disk-config.nix
   ];
@@ -77,6 +78,8 @@ in {
       AllowUsers = ["gregoire"];
     };
   };
+
+  users.users.gregoire.initialPassword = "gregoire";
 
   environment.systemPackages = with pkgs; [
     fastfetch.minimal
