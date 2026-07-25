@@ -12,6 +12,7 @@ in {
     (sources.agenix + "/modules/age.nix")
     ./hardware-configuration.nix
     ./disk-config.nix
+    ./caddy.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
   # for adding ZFS and a bunch of other unnecessary programs:
@@ -37,6 +38,7 @@ in {
   networking.networkmanager.enable = true;
 
   networking = {
+    hostName = "vps";
     interfaces.eth0 = {
       ipv4.addresses = [
         {

@@ -3,6 +3,7 @@
 
   services.caddy = {
     enable = true;
+    email = "acme@gregoirelayet.com";
     virtualHosts."gregoirelayet.com".extraConfig = ''
       header {
           X-Content-Type-Options nosniff
@@ -18,7 +19,7 @@
 
       route {
           file_server * {
-              root /srv/ssg
+              root /var/www/ssg
               precompressed gzip
           }
       }
@@ -39,7 +40,7 @@
 
       route {
           file_server * {
-              root /srv/enora
+              root /var/www/enora
               precompressed gzip
           }
       }
