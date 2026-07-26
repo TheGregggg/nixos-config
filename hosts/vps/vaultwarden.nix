@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   domain = "gregpass";
 in {
   services.vaultwarden = {
@@ -33,4 +37,48 @@ in {
         header_up X-Real-IP {remote_host}
     }
   '';
+
+  systemd.timers.backup-vaultwarden.timerConfig.OnCalendar = "*-*-* 01:00:00 Europe/Paris";
+
+  systemd.timers."vaultwarden-backup-tar" = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = "*-*-* 02:00:00 Europe/Paris";
+      Persistent = true; # run if missed last activation
+      Unit = "vaultwarden-backup-tar.service";
+    };
+  };
+
+  systemd.services."vaultwarden-backup-tar" = {
+    path = [
+      pkgs.gnutar
+      pkgs.gzip
+    ];
+    description = "Backup vaultwarden files to a tarball";
+    # no need to stop vaultwarden as this create an archive from the backup directory
+    script = ''
+      #!${pkgs.runtimeShell}
+      filename=$(date +"%Y-%m-%d_%H-%M-%S")_vw.tar.gz
+      mkdir -p /home/gregoire/backup-vaultwarden
+      tar -C ${config.services.vaultwarden.backupDir} -czf /home/gregoire/backup-vaultwarden/$filename .
+      chown -R gregoire /home/gregoire/backup-vaultwarden
+
+      ## To test in one month
+      ### delete all backups older than 7 days which are not made on a sunday
+      # find /home/gregoire/backup-vaultwarden/ -mtime +7 -exec sh -c '[ $(date -r "{}" +%w) != 0 ] && rm "{}"' \;
+
+      ### delete all backups older than 30 days which are not from the first week
+      # find /home/gregoire/backup-vaultwarden/ -mtime +30 -exec sh -c '[ $(date -r "{}" +%d) -gt 7 ] && rm "{}"' \;
+
+      ### delete all backups older than 365 days which are not from the first month
+      # find /home/gregoire/backup-vaultwarden/ -mtime +365 -exec sh -c '[ $(date -r "{}" +%m) -gt 1 ] && rm "{}"' \;
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      ProtectSystem = "full";
+      NoNewPriviliges = true;
+      ReadWritePaths = "/home/gregoire/backup-vaultwarden";
+    };
+  };
 }
