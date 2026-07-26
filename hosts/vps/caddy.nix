@@ -1,5 +1,7 @@
-{...}: {
+{config, ...}: {
   networking.firewall.allowedTCPPorts = [80 443];
+
+  systemd.services.caddy.serviceConfig.EnvironmentFile = [config.age.secrets.caddyEnv.path];
 
   services.caddy = {
     enable = true;
@@ -23,6 +25,19 @@
               precompressed gzip
           }
       }
+
+      log {
+        output file /var/log/caddy/gregoirelayet.log
+        format filter {
+            wrap json
+            fields {
+                request>remote_ip ip_mask {
+                    ipv4 16
+                    ipv6 32
+                }
+            }
+        }
+      }
     '';
 
     virtualHosts."enoraguiot.fr".extraConfig = ''
@@ -43,6 +58,28 @@
               root /var/www/enora
               precompressed gzip
           }
+      }
+
+      log {
+        output file /var/log/caddy/enoraguiot.log
+        format filter {
+            wrap json
+            fields {
+                request>remote_ip ip_mask {
+                    ipv4 16
+                    ipv6 32
+                }
+            }
+        }
+      }
+    '';
+
+    virtualHosts."stats.gregoirelayet.com".extraConfig = ''
+      root * /var/www/stats.gregoirelayet.com
+      file_server
+
+      basicauth argon2id {
+          gregoire {$STATS_AUTH_HASH}
       }
     '';
   };

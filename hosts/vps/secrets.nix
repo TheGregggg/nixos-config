@@ -6,4 +6,5 @@ let
   server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbGDaQ2wIB+/tNioGzbSaa1mQLpiiLQ/FqPfMV+ue1K";
 in {
   "./secrets/vaultwarden.age".publicKeys = users ++ [server];
+  "./secrets/caddy.age".publicKeys = users ++ [server];
 }

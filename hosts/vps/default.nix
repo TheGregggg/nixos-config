@@ -14,6 +14,7 @@ in {
     ./caddy.nix
     ./vaultwarden.nix
     ./fail2ban.nix
+    ./goaccess.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
   # for adding ZFS and a bunch of other unnecessary programs:
@@ -82,7 +83,10 @@ in {
     };
   };
 
-  age.secrets.vaultwardenEnv.file = ./secrets/vaultwarden.age;
+  age.secrets = {
+    vaultwardenEnv.file = ./secrets/vaultwarden.age;
+    caddyEnv.file = ./secrets/caddy.age;
+  };
 
   users.users.gregoire.initialPassword = "gregoire";
 
