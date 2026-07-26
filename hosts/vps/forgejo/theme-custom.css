@@ -1,0 +1,8 @@
+@import "./theme-forgejo-auto.css";
+
+:root {
+	--color-primary: oklch(56.871% 0.28227 300.021) !important;
+	--color-primary-hover: oklch(66.273% 0.22058 303.145) !important;
+	--color-primary-active: oklch(49.247% 0.26147 301.042) !important;
+	--color-accent: var(--color-primary) !important;
+}
