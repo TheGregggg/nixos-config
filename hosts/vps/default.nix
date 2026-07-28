@@ -82,6 +82,11 @@ in {
       PermitRootLogin = "no";
       AllowUsers = ["gregoire"];
     };
+    allowSFTP = false; # Don't set this if you need sftp
+    extraConfig = ''
+      AllowTcpForwarding yes
+      AuthenticationMethods publickey
+    '';
   };
 
   age.secrets = {
