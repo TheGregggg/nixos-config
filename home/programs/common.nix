@@ -86,6 +86,7 @@
         ms-python.python
         dbaeumer.vscode-eslint
         antyos.openscad
+        ltex-plus.vscode-ltex-plus
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
