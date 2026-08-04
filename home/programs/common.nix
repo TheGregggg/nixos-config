@@ -9,6 +9,7 @@
     libreoffice
     hunspell
     hunspellDicts.fr-moderne
+    ltex-ls-plus
 
     inkscape
 
@@ -40,6 +41,7 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
+    parallel
 
     texliveFull
     texstudio
