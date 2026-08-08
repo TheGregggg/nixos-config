@@ -22,7 +22,7 @@
       route {
           file_server * {
               root /var/www/ssg
-              precompressed gzip
+              precompressed br gzip
           }
       }
 
