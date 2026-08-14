@@ -24,6 +24,10 @@
               root /var/www/ssg
               precompressed br gzip
           }
+          handle_errors {
+              rewrite /{err.status_code}.html
+              file_server
+          }
       }
 
       log {
@@ -78,7 +82,7 @@
       root * /var/www/stats.gregoirelayet.com
       file_server
 
-      basicauth argon2id {
+      basic_auth argon2id {
           gregoire {$STATS_AUTH_HASH}
       }
     '';
