@@ -31,9 +31,6 @@
     foot
     lf
 
-    jdk
-    jetbrains.idea-oss
-
     # archives
     zip
     unzip
