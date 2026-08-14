@@ -34,6 +34,7 @@
     drivers = with pkgs; [
       cups-filters
       cups-browsed
+      gutenprint
     ];
     cups-pdf.enable = true; # enable virtual printer to print to pdf
   };
