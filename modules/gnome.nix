@@ -89,7 +89,7 @@ in {
 
           # extensions and dock settings
           "org/gnome/shell" = {
-            favorite-apps = ["brave-browser.desktop" "org.gnome.Nautilus.desktop" "kitty.desktop" "codium.desktop"];
+            favorite-apps = ["brave-browser.desktop" "librewolf.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "codium.desktop"];
             disable-user-extensions = false; # enables user extensions
             enabled-extensions = with pkgs.gnomeExtensions; [
               gsconnect.extensionUuid
