@@ -23,6 +23,7 @@
     filezilla
     picard
     tigervnc
+    thunderbird
 
     # dev
     zig
@@ -100,6 +101,12 @@
           version = "0.1.3";
           sha256 = "h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
         }
+        {
+          name = "latex-workshop";
+          publisher = "James-Yu";
+          version = "10.18.0";
+          sha256 = "nuBx5ujJPbKvXRvIbUaPaIgoUeeYp4XwHwOdAjCVqUY=";
+        }
       ];
   };
 
@@ -108,6 +115,20 @@
     themeFile = "Catppuccin-Macchiato";
     settings = {
       font_family = "0xProto Nerd Font Mono";
+    };
+  };
+
+  programs.librewolf = {
+    enable = true;
+    settings = {
+      "privacy.resistFingerprinting.letterboxing" = true;
+    };
+    profiles.gregoire = {
+      settings = {
+        "sidebar.verticalTabs" = true;
+        "sidebar.verticalTabs.dragToPinPromo.dismissed" = true;
+        "extensions.autoDisableScopes" = 0; #auto enable extensions
+      };
     };
   };
 }
