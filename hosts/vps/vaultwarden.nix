@@ -65,13 +65,13 @@ in {
 
       ## To test in one month
       ### delete all backups older than 7 days which are not made on a sunday
-      find /home/gregoire/backup-vaultwarden/ -mtime +7 -exec sh -c '[ $(date -r "{}" +%w) != 0 ] && rm "{}"' \;
+      find /home/gregoire/backup-vaultwarden/ -mtime +7 -exec ${pkgs.bash}/bin/bash -c '[ $(date -r "{}" +%w) != 0 ] && rm "{}"' \;
 
       ### delete all backups older than 30 days which are not from the first week
-      # find /home/gregoire/backup-vaultwarden/ -mtime +30 -exec sh -c '[ $(date -r "{}" +%d) -gt 7 ] && rm "{}"' \;
+      # find /home/gregoire/backup-vaultwarden/ -mtime +30 -exec ${pkgs.bash}/bin/bash -c '[ $(date -r "{}" +%d) -gt 7 ] && rm "{}"' \;
 
       ### delete all backups older than 365 days which are not from the first month
-      # find /home/gregoire/backup-vaultwarden/ -mtime +365 -exec sh -c '[ $(date -r "{}" +%m) -gt 1 ] && rm "{}"' \;
+      # find /home/gregoire/backup-vaultwarden/ -mtime +365 -exec ${pkgs.bash}/bin/bash  -c '[ $(date -r "{}" +%m) -gt 1 ] && rm "{}"' \;
     '';
     serviceConfig = {
       Type = "oneshot";
