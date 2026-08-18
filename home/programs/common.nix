@@ -9,7 +9,6 @@
     libreoffice
     hunspell
     hunspellDicts.fr-moderne
-    ltex-ls-plus
 
     inkscape
 
@@ -17,20 +16,19 @@
     discord
     transmission_4-gtk
     karere
-    # signal-desktop
+    signal-desktop
     pdfsam-basic
     nextcloud-client
     filezilla
     picard
-    tigervnc
     thunderbird
 
     # dev
     zig
     arduino-ide
-    ghex
-    foot
-    lf
+
+    # OSS
+    b4
 
     # archives
     zip
@@ -40,11 +38,20 @@
     ripgrep # recursively searches directories for a regex pattern
     fzf
     parallel
+    shfmt
+    shellcheck
+    lf
+    binwalk
+
+    foot
 
     texliveFull
     texstudio
+    ltex-ls-plus
 
+    #netwoking
     nmap
+    arp-scan
 
     # misc
     cowsay
