@@ -7,6 +7,8 @@
     enable = true;
     email = "acme@gregoirelayet.com";
     virtualHosts."gregoirelayet.com".extraConfig = ''
+      root /var/www/ssg
+
       header {
           X-Content-Type-Options nosniff
           X-Frame-Options SAMEORIGIN
@@ -19,16 +21,16 @@
           Cache-Control "public, max-age=31536000, immutable"
       }
 
-      route {
-          file_server * {
-              root /var/www/ssg
-              precompressed br gzip
-          }
-          handle_errors {
-              rewrite /{err.status_code}.html
-              file_server
-          }
+
+      file_server * {
+        precompressed br gzip
       }
+      handle_errors {
+        rewrite /{err.status_code}.html
+        file_server
+      }
+
+      log_skip @cachedFiles
 
       log {
         output file /var/log/caddy/gregoirelayet.log
