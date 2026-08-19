@@ -30,6 +30,8 @@ in {
     aerc
     fractal
 
+    pympress
+
     # apps
     pdfsam-basic
     filezilla
