@@ -18,6 +18,7 @@
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   fileSystems."/" = {
