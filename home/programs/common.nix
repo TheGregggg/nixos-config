@@ -23,6 +23,8 @@
     picard
     thunderbird
 
+    pympress
+
     # dev
     zig
     arduino-ide
