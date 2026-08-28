@@ -29,7 +29,6 @@ in {
       gcm = "git commit -s -m";
       gca = "git commit --amend";
       ydl = "yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o \"%(title)s.%(ext)s\"";
-      grep = "ripgrep";
       rebootwindob = "systemctl reboot --boot-loader-entry=windows_10.conf";
     };
   };
