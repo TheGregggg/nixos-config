@@ -20,6 +20,7 @@
     slurp
     wl-clipboard
     waybar
+    networkmanagerapplet
   ];
 
   # enable sway window manager

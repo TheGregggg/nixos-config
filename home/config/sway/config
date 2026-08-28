@@ -225,22 +225,7 @@ bindsym $mod+KP_Subtract exec 'swaymsg gaps inner current minus 8'
 
 # Basic bar configuration using the Base16 variables.
 bar {
-    # swaybar_command waybar
-
-    position top
-
-    colors {
-        background $purple
-        separator  $lightgreen
-        statusline #ff0000
-
-        # State             Border  BG      Text
-        focused_workspace   $lightpurple $lightpurple $green
-        active_workspace    $lightpurple $lightpurple $green
-        inactive_workspace  $purple $purple $green
-        urgent_workspace    $orange $orange $green
-        binding_mode        #ff0000 #ff0000 $green
-    }
+    swaybar_command waybar
 }
 
 # Basic color configuration using the Base16 variables for windows and borders.
@@ -263,5 +248,7 @@ bindsym Mod4+shift+e exec swaynag \
       -b 'Reboot' 'systemctl reboot'
 
 default_border pixel
+
+exec nm-applet --indicator
 
 include /etc/sway/config.d/*
