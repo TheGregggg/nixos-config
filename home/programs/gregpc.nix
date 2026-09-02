@@ -14,6 +14,8 @@
 
     prismlauncher
 
+    feishin
+
     cemu
     ryubing
 
