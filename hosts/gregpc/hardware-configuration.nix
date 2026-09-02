@@ -42,8 +42,13 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  environment.sessionVariables = {
+    QT_QPA_PLATFORM = "xcb";
+  };
+
   # Enalbe nVidia drivers
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.open = true; # see the note above
+  hardware.nvidia.modesetting.enable = true;
 }
