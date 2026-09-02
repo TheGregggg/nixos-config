@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   ##### User config
   users.users.gregoire = {
     isNormalUser = true;
@@ -62,6 +67,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  hardware.keyboard.qmk.enable = true;
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     vim
@@ -79,34 +86,21 @@
 
   #### Services
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true; # enable virtual printer to print to pdf
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  # printer discovery
+  services.avahi = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
   };
-
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-    ipafont
-    kochi-substitute
-  ];
+  # Enable CUPS to print documents.
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+    cups-pdf.enable = true; # enable virtual printer to print to pdf
+  };
 
   #programs.adb.enable = false;
 

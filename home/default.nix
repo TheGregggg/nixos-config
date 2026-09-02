@@ -1,10 +1,8 @@
-{gregcomputer, ...}: {
+{...}: {
   imports = [
-    (import ./gnome {inherit gregcomputer;})
-    (import ./programs {inherit gregcomputer;})
+    ./programs
     ./config
   ];
-
   home = {
     username = "gregoire";
     homeDirectory = "/home/gregoire";

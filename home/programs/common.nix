@@ -15,7 +15,8 @@
     # apps
     discord
     transmission_4-gtk
-    wasistlos
+    karere
+    # signal-desktop
     pdfsam-basic
     nextcloud-client
     filezilla
@@ -26,6 +27,8 @@
     zig
     arduino-ide
     ghex
+    foot
+    lf
 
     jdk
     jetbrains.idea-oss
@@ -37,10 +40,8 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    starship
     fastfetch
     btop
-    wineWowPackages.stable
 
     texliveFull
     texstudio
@@ -62,68 +63,44 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
-
-    yt-dlp
   ];
 
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "Grégoire Layet";
-      email = "git@gregoirelayet.com";
-    };
-  };
+  programs.git.enable = true;
 
-  programs.brave = {
-    enable = true;
-    package = pkgs.brave;
-    extensions = [
-      {id = "nngceckbapebfimnlniiiahkandclblb";} # bitwarden
-      {id = "nnghgmgfiemkbmbfdiacfceanmpdgbcd";} # Gestnote Ranking
-      {id = "cmpdlhmnmjhihmcfnigoememnffkimlk";} # Catppuccin Macchiato
-    ];
-    commandLineArgs = ["--password-store=gnome-libsecret"];
-  };
+  gregConfig.brave.enable = true;
 
-  programs.vscode = {
+  gregConfig.ydl.enable = true;
+
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     mutableExtensionsDir = false;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-      kamadorueda.alejandra
-      jeff-hykin.better-nix-syntax
-      jnoortheen.nix-ide
-      pkief.material-icon-theme
-      llvm-vs-code-extensions.vscode-clangd
-      ziglang.vscode-zig
-      ms-python.python
-    ];
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    # TODO add your custom bashrc here
-    initExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      HISTCONTROL=ignoreboth
-
-      ydl(){
-        yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o "%(title)s.%(ext)s" "$1"
-      }
-
-      eval "$(starship init bash)"
-    '';
-
-    # set some aliases, feel free to add more or remove some
-    shellAliases = {
-      ll = "ls -alh";
-      vi = "nvim";
-      nrs = "sudo nixos-rebuild switch --no-reexec";
-      gcm = "git commit -m";
-    };
+    profiles.default.extensions = with pkgs.vscode-extensions;
+      [
+        catppuccin.catppuccin-vsc
+        kamadorueda.alejandra
+        jeff-hykin.better-nix-syntax
+        jnoortheen.nix-ide
+        pkief.material-icon-theme
+        llvm-vs-code-extensions.vscode-clangd
+        ziglang.vscode-zig
+        ms-python.python
+        dbaeumer.vscode-eslint
+        antyos.openscad
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "javascript-ejs-support";
+          publisher = "DigitalBrainstem";
+          version = "1.3.3";
+          sha256 = "VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
+        }
+        {
+          name = "nix-embedded-highlighter";
+          publisher = "atomicspirit";
+          version = "0.1.3";
+          sha256 = "h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
+        }
+      ];
   };
 
   programs.kitty = {
@@ -136,5 +113,7 @@
 
   programs.neovim = {
     enable = true;
+    withPython3 = false;
+    withRuby = false;
   };
 }

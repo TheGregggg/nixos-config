@@ -1,8 +1,9 @@
-{gregcomputer, ...}: {
+{hostname, ...}: {
   imports = [
-    ./common.nix
-    ./maker.nix
-    ./gaming.nix
-    (./. + "/${gregcomputer}.nix")
+    ./shell.nix
+    ./browser.nix
+    ./git.nix
+    ./ydl.nix
+    (./. + "/${hostname}.nix")
   ];
 }

@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   imports = [
+    ./common.nix
+    ./maker.nix
+    ./gaming.nix
     ./switch.nix
   ];
 
@@ -25,7 +28,7 @@
       ];
     })
 
-    wineWowPackages.stable
+    wineWow64Packages.stable
     winetricks
   ];
 

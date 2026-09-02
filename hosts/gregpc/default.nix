@@ -1,12 +1,8 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/system.nix
-    ../../modules/gnome.nix
     ../../modules/podman.nix
+    ../../modules/switch.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -52,6 +48,12 @@
     };
   };
 
+  gregConfig.gnomeDesktop = {
+    enable = true;
+    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/evangelions.jpg";
+  };
+  dconf.settings."org/gnome/desktop/background".picture-options = "spanned";
+
   networking.hostName = "gregpc";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -63,20 +65,6 @@
   networking.networkmanager.enable = true;
 
   #ncfg.services.numlock-on-tty.enable = true;
-
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "71-nxdumptool.rules";
-      destination = "/etc/udev/rules.d/71-nxdumptool.rules";
-      text = ''
-            # Nintendo SDK debugger, which nxdumptool presents itself as
-        SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", TAG+="uaccess"
-      '';
-      checkPhase = ''
-        ${config.systemd.package}/bin/udevadm verify --resolve-names=late $out/etc/udev/rules.d/71-nxdumptool.rules
-      '';
-    })
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
