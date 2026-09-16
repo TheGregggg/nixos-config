@@ -16,6 +16,7 @@ in {
     ./fail2ban.nix
     ./goaccess.nix
     ./forgejo.nix
+    ./wordpress.nix
   ];
   # Disabling the whole `profiles/base.nix` module, which is responsible
   # for adding ZFS and a bunch of other unnecessary programs:
