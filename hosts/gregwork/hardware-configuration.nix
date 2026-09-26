@@ -7,33 +7,13 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}: { 
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    # include NixOS-WSL modules
+    <nixos-wsl/modules>
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/mapper/luks-53c1bd27-0943-41ad-95a7-e10733979a3d";
-    fsType = "ext4";
-  };
-
-  boot.initrd.luks.devices."luks-53c1bd27-0943-41ad-95a7-e10733979a3d".device = "/dev/disk/by-uuid/53c1bd27-0943-41ad-95a7-e10733979a3d";
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A7B9-1E6D";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
-  };
-
-  swapDevices = [
-    {device = "/dev/mapper/luks-88c54c8b-32bb-457b-b898-4e509d23cf38";}
-  ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  wsl.enable = true;
+  wsl.defaultUser = "gregoire";
+	
 }

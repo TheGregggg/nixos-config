@@ -6,7 +6,7 @@ cd $(dirname $0)
 cmd=${1:-switch}
 shift
 
-nixpkgs_pin=$(nix eval --raw -f npins/default.nix nixpkgs)
+nixpkgs_pin=$(nix --extra-experimental-features nix-command eval --raw -f npins/default.nix nixpkgs)
 nix_path="nixpkgs=${nixpkgs_pin}:nixos-config=${PWD}/configuration.nix"
 hostname=$HOSTNAME
 

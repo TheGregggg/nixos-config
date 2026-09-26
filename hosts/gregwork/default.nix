@@ -8,37 +8,14 @@
 }: {
   imports = [
     ../../modules/workstation.nix
-    ../../modules/podman.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix
   ];
 
-  # Bootloader config
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
-    loader = {
-      systemd-boot.enable = lib.mkForce false;
+  users.users.gregoire.uid = 1001;
 
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-    };
-
-    # Lanzaboote currently replaces the systemd-boot module.
-    # This setting is usually set to true in configuration.nix
-    # generated at installation time. So we force it to false
-    # for now.
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-    };
-
-    initrd.luks.devices."luks-88c54c8b-32bb-457b-b898-4e509d23cf38".device = "/dev/disk/by-uuid/88c54c8b-32bb-457b-b898-4e509d23cf38";
-  };
-
-  gregConfig.gnomeDesktop.enable = true;
+  gregConfig.gnomeDesktop.enable = false;
 
   networking.hostName = "gregwork"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -48,18 +25,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   services.xserver.xkb = {
-    layout = lib.mkForce "us";
+    layout = lib.mkForce "fr";
     variant = "";
   };
 
   environment.systemPackages = with pkgs; [
-    # For debugging and troubleshooting Secure Boot.
-    sbctl
-
-    openscad
-
     tio
-    dediprog-sf100
     saleae-logic-2
   ];
 
@@ -73,8 +44,9 @@
   networking.firewall.allowedUDPPorts = [];
 
   hardware.bluetooth.powerOnBoot = false;
+  networking.wireless.enable = lib.mkForce false;
 
-  #ncfg.services.numlock-on-tty.enable = true;
+  programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
