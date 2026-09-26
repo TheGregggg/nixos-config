@@ -1,14 +1,4 @@
-{pkgs, ...}: let
-  wordpress-theme-erma = pkgs.stdenv.mkDerivation rec {
-    name = "erma";
-    version = "1.0.11";
-    src = pkgs.fetchzip {
-      url = "https://downloads.wordpress.org/theme/erma.${version}.zip";
-      hash = "sha256-EI8hCx19mz2PrGbH3EUJ/MIv7+zNgNPbMj7DTThHI4o=";
-    };
-    installPhase = "mkdir -p $out; cp -R * $out/";
-  };
-in {
+{pkgs, ...}: {
   services.wordpress = {
     webserver = "caddy";
 
@@ -20,11 +10,14 @@ in {
         FORCE_SSL_ADMIN = true;
         WP_HOME = "https://romaneguillemard.fr";
         WP_SITEURL = "https://romaneguillemard.fr";
-        WP_DEFAULT_THEME = "erma";
+        WP_DEFAULT_THEME = "twentytwentyone";
       };
 
       themes = {
-        inherit wordpress-theme-erma;
+        inherit
+          (pkgs.wordpressPackages.themes)
+          twentytwentyone
+          ;
       };
 
       extraConfig = ''
