@@ -26,10 +26,20 @@
     };
   };
 
+  systemd.timers."wordpress-backup-tar" = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = "*-*-* 02:30:00 Europe/Paris";
+      Persistent = true; # run if missed last activation
+      Unit = "wordpress-backup-tar.service";
+    };
+  };
+
   systemd.services."wordpress-backup-tar" = {
     path = [
       pkgs.gnutar
       pkgs.gzip
+      pkgs.mariadb
     ];
     description = "Backup wordpress files to a tarball";
     # no need to stop wordpress, DB backup is locked as one operation and files are copied afterwards
