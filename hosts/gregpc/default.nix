@@ -2,8 +2,9 @@
   imports = [
     ../../modules/workstation.nix
     ../../modules/podman.nix
-    ../../modules/switch.nix
     ../../modules/server_hosts.nix
+    ../../modules/steam.nix
+    ../../modules/switch.nix
 
     ./hardware-configuration.nix
     ./system-apps.nix

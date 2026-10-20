@@ -49,4 +49,6 @@
       obs-vkcapture
     ];
   };
+
+  programs.bash.shellAliases.rebootwindob = "systemctl reboot --boot-loader-entry=windows_10.conf";
 }
