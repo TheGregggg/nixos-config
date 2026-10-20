@@ -119,14 +119,6 @@
       ];
   };
 
-  programs.kitty = {
-    enable = true;
-    themeFile = "Catppuccin-Macchiato";
-    settings = {
-      font_family = "0xProto Nerd Font Mono";
-    };
-  };
-
   programs.librewolf = {
     enable = true;
     settings = {
