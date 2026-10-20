@@ -19,7 +19,6 @@
     };
     kernelModules = ["k10temp" "it87"];
     extraModulePackages = [];
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   fileSystems."/" = {
