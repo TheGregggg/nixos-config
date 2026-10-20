@@ -50,7 +50,7 @@
 
   gregConfig.gnomeDesktop = {
     enable = true;
-    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/evangelions.jpg";
+    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/eva01.jpg";
   };
   home-manager.users.gregoire.dconf.settings."org/gnome/desktop/background".picture-options = "spanned";
 
