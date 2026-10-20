@@ -1,10 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ../../modules/system.nix
+    ../../modules/workstation.nix
     ../../modules/podman.nix
+    ../../modules/server_hosts.nix
+    ../../modules/steam.nix
     ../../modules/switch.nix
 
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./system-apps.nix
   ];
@@ -50,9 +51,9 @@
 
   gregConfig.gnomeDesktop = {
     enable = true;
-    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/evangelions.jpg";
+    wallpaper = "/home/gregoire/nixos-config/home/themes/wallpaper/eva01.jpg";
   };
-  dconf.settings."org/gnome/desktop/background".picture-options = "spanned";
+  home-manager.users.gregoire.dconf.settings."org/gnome/desktop/background".picture-options = "spanned";
 
   networking.hostName = "gregpc";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

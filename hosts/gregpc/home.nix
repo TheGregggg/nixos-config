@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
-    ./common.nix
-    ./maker.nix
-    ./gaming.nix
-    ./switch.nix
+    ../../home/programs/common.nix
+    ../../home/programs/maker.nix
+    ../../home/programs/gaming.nix
+    ../../home/programs/switch.nix
   ];
 
   home.packages = with pkgs; [
@@ -51,4 +51,6 @@
       obs-vkcapture
     ];
   };
+
+  programs.bash.shellAliases.rebootwindob = "systemctl reboot --boot-loader-entry=windows_10.conf";
 }

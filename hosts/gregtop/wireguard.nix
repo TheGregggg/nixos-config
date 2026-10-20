@@ -1,4 +1,7 @@
-{...}: {
+{...}: let
+  secrets = import ../../modules/secrets.nix;
+  inherit (secrets.network.vpn) nodePubkey endpoint port;
+in {
   networking.firewall.allowedUDPPorts = [49696];
 
   networking.wireguard.enable = true;
@@ -7,9 +10,7 @@
   # https://codeberg.org/siblingsofthevoid/nixos-config/commit/e6086957c8f5b5a3e152ec07e9dbfaea50422ab8
 
   networking.networkmanager.ensureProfiles = {
-    profiles = let
-      nodePubkey = "ycY9O5x5lO51/DNq5oHzIkTotqpbaFgnb3CMmxLMS3c=";
-    in {
+    profiles = {
       wireguardvpn = {
         connection = {
           autoconnect = "true";
@@ -31,8 +32,8 @@
         };
         proxy = {};
         "wireguard-peer.${nodePubkey}" = {
-          allowed-ips = "10.69.1.0/24;10.69.0.0/24;192.168.1.0/24;";
-          endpoint = "88.188.237.164:49696";
+          allowed-ips = "10.69.1.0/24;10.69.0.0/24;";
+          endpoint = "${endpoint}:${toString port}";
         };
       };
     };

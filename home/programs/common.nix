@@ -16,22 +16,21 @@
     discord
     transmission_4-gtk
     karere
-    # signal-desktop
+    signal-desktop
     pdfsam-basic
     nextcloud-client
     filezilla
     picard
-    tigervnc
+    thunderbird
+
+    pympress
 
     # dev
     zig
     arduino-ide
-    ghex
-    foot
-    lf
 
-    jdk
-    jetbrains.idea-oss
+    # OSS
+    b4
 
     # archives
     zip
@@ -40,13 +39,21 @@
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fzf
-    fastfetch
-    btop
+    parallel
+    shfmt
+    shellcheck
+    lf
+    binwalk
+
+    foot
 
     texliveFull
     texstudio
+    ltex-ls-plus
 
+    #netwoking
     nmap
+    arp-scan
 
     # misc
     cowsay
@@ -71,6 +78,8 @@
 
   gregConfig.ydl.enable = true;
 
+  gregConfig.nvim.enable = true;
+
   programs.vscodium = {
     enable = true;
     mutableExtensionsDir = false;
@@ -86,6 +95,7 @@
         ms-python.python
         dbaeumer.vscode-eslint
         antyos.openscad
+        ltex-plus.vscode-ltex-plus
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -100,20 +110,26 @@
           version = "0.1.3";
           sha256 = "h864VdBXr9RTcFF++K0e6JcGWC2ffK0Phh2Zlqvzmro=";
         }
+        {
+          name = "latex-workshop";
+          publisher = "James-Yu";
+          version = "10.18.0";
+          sha256 = "nuBx5ujJPbKvXRvIbUaPaIgoUeeYp4XwHwOdAjCVqUY=";
+        }
       ];
   };
 
-  programs.kitty = {
+  programs.librewolf = {
     enable = true;
-    themeFile = "Catppuccin-Macchiato";
     settings = {
-      font_family = "0xProto Nerd Font Mono";
+      "privacy.resistFingerprinting.letterboxing" = true;
     };
-  };
-
-  programs.neovim = {
-    enable = true;
-    withPython3 = false;
-    withRuby = false;
+    profiles.gregoire = {
+      settings = {
+        "sidebar.verticalTabs" = true;
+        "sidebar.verticalTabs.dragToPinPromo.dismissed" = true;
+        "extensions.autoDisableScopes" = 0; #auto enable extensions
+      };
+    };
   };
 }

@@ -40,5 +40,6 @@
         "restructuredtext",
         "rsweave",
         "git-commit"
-    ]
+    ],
+    "diffEditor.ignoreTrimWhitespace": false
 }

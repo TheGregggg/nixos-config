@@ -1,10 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  nixConfigPath = "${config.home.homeDirectory}/nixos-config/home/config";
+in {
   home.packages = with pkgs; [
     starship
   ];
 
   home.sessionVariables = {
-    EDITOR = "vi";
     NIXPKGS_ALLOW_UNFREE = 1;
   };
 
@@ -21,11 +26,10 @@
     shellAliases = {
       ll = "ls -alh";
       vi = "nvim";
-      nrs = "sudo nixos-rebuild switch --no-reexec";
       gcm = "git commit -s -m";
       gca = "git commit --amend";
-      ydl = "yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o \"%(title)s.%(ext)s\"";
-      rebootwindob = "systemctl reboot --boot-loader-entry=windows_10.conf";
     };
   };
+
+  xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${nixConfigPath}/starship.toml";
 }
