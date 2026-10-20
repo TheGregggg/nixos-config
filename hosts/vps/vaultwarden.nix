@@ -77,7 +77,7 @@ in {
       Type = "oneshot";
       User = "root";
       ProtectSystem = "full";
-      NoNewPriviliges = true;
+      NoNewPrivileges = true;
       ReadWritePaths = "/home/gregoire/backup-vaultwarden";
     };
   };

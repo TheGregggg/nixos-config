@@ -8,8 +8,7 @@
 
   home.packages = with pkgs; [
     # logseq
-    clickup
-    st
     reaper
+    prismlauncher
   ];
 }

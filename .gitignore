@@ -3,3 +3,4 @@
 wireguardvpn.conf
 privatekey
 result
+secrets.nix
