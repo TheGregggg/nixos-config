@@ -39,4 +39,5 @@
         "git-commit"
     ],
     "ltex.ltex-ls.path": "/etc/profiles/per-user/gregoire/",
+    "terminal.integrated.stickyScroll.enabled": false,
 }
