@@ -10,4 +10,4 @@ nixpkgs_pin=$(nix --extra-experimental-features nix-command eval --raw -f npins/
 nix_path="nixpkgs=${nixpkgs_pin}:nixos-config=${PWD}/configuration.nix"
 hostname=$HOSTNAME
 
-sudo env NIX_PATH="${nix_path}" env HOSTNAME="${hostname}" nixos-rebuild "$cmd" --no-reexec --no-flake --show-trace "$@"
+sudo env NIX_PATH="${nix_path}" env HOSTNAME="${hostname}" nixos-rebuild --cores 0 "$cmd" --no-reexec --no-flake --show-trace "$@"
