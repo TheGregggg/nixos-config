@@ -97,6 +97,7 @@
         antyos.openscad
         ltex-plus.vscode-ltex-plus
         scala-lang.scala
+        scalameta.metals
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

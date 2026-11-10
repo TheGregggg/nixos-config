@@ -40,4 +40,8 @@
     ],
     "ltex.ltex-ls.path": "/etc/profiles/per-user/gregoire/",
     "terminal.integrated.stickyScroll.enabled": false,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true
+    },
 }
