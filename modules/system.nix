@@ -23,7 +23,7 @@
       # Perform garbage collection weekly to maintain low disk usage
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 1w";
+      options = "--delete-older-than 7d";
     };
   };
 
