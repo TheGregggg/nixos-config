@@ -96,6 +96,7 @@
         dbaeumer.vscode-eslint
         antyos.openscad
         ltex-plus.vscode-ltex-plus
+        scala-lang.scala
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
